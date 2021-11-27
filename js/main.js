@@ -1,3 +1,4 @@
+// This is onload script
 var i = new Image();
 i.src = 'https://api.iyk0.com/ecy/api.php';
 i.onload = function() {
@@ -9,6 +10,7 @@ i.onerror = function() {
     document.getElementById('background').style.backgroundImage = "url('imgs/background.png')";
 };
 
+//This is searchBar function
 function onkeywords() {
   if(event.keyCode==13) {
     var keywords = document.getElementById('keywords').value;
@@ -16,16 +18,19 @@ function onkeywords() {
   }
 }
 
+//This is historybar function
 function onBarButton(){
   document.getElementById('bar').className = 'barSel';
   document.getElementById('imgbefore').className = 'imgafter'
 }
 
+//This is historybar back function
 function onBarButtonBack(){
   document.getElementById('bar').className = 'bar';
   document.getElementById('imgbefore').className = 'imgbefore'
 }
 
+//This is show all element function
 function onShow(){
   document.getElementById('mainlink').style.display="";
   document.getElementById('button').hidden = false;
@@ -34,6 +39,7 @@ function onShow(){
   document.getElementById('cal').hidden = false;
 }
 
+//This is hide all element function
 function onHide(){
   var hide = document.getElementById('button').hidden;
   if(hide == false){
@@ -47,6 +53,7 @@ function onHide(){
   }
 }
 
+//This is calculator function
 function onCal(){
   var hide = document.getElementById('button').hidden;
   if(hide == false){

@@ -6,18 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js">isOnline()</script>
+    <script src="js/main.js"></script>
 </head>
 <body id="background">
+    <!-- This is top-left button -->
     <div class="title">
         <div class="hide" id="hide" onclick="onHide()"><img src="imgs/hide.png"></div>
         <div class="history" id="history" onclick="onBarButton()"><img src="imgs/fy_ic_history.png"></div>
         <div class="reload" id="reload" onclick="location.reload()"><img src="imgs/reload.png"></div>
         <div class="cal" id="cal" onclick="onCal()"><img src="imgs/calculator.png"></div>
     </div>
+    <!-- This is history bar -->
     <div class="bar" id="bar">
         <div class="historyback" onclick="onBarButtonBack()"><img id="imgbefore" src="imgs/back_black.png"></div>
     </div>
+    <!-- This is searchmain area -->
     <div class="main" id="main">
         <div class="searchbar">
             <img src="imgs/google.png">
@@ -36,6 +39,7 @@
             <a href="https://github.com"><div><img src="imgs/GitHub.png"></div></a>
         </div>
     </div>
+    <!-- This is calculator area -->
     <div class="mainCal" id="mainCal" hidden>
         <form class="card" name="cal" action="" id="card">
             <input type="text" class="value" name="txt" readonly="readonly" />
@@ -59,6 +63,7 @@
             <span class="result" onclick="document.cal.txt.value = eval(document.cal.txt.value)">=</span>
         </form>
     </div>
+    <!-- This is bottem button -->
     <a href="neumorphismindex.html" class="button" id="button">neumorphism</a>
 </body>
 </html>

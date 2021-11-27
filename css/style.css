@@ -12,12 +12,14 @@ body{
     background-size: cover;
 }
 
+/* This is searchMain style */
 .main{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* This is searchbar style */
 .searchbar{
     width: 570px;
     height: 30px;
@@ -53,6 +55,7 @@ body{
     margin-right: 10px;
 }
 
+/* This is favourite link style */
 .link{
     display: flex;
     flex-direction: row;
@@ -91,6 +94,7 @@ body{
     max-height: 100%;
 }
 
+/* This is bottem button style */
 .button{
     position: fixed;
     bottom: 0;
@@ -110,6 +114,7 @@ a{
     font-weight: bold;
 }
 
+/* This is top-left button element style */
 .title{
     position: fixed;
     top: 0;
@@ -192,6 +197,7 @@ a{
     height: 100%;
 }
 
+/* This is historybar style */
 .bar{
     height: 100vh;
     width: 0px;
