@@ -10,14 +10,15 @@
 </head>
 <body>
     <div class="title">
+        <div class="hide" id="hide" onclick="onHide()"><img src="imgs/hide.png"></div>
         <div class="history" id="history" onclick="onBarButton()"><img src="imgs/fy_ic_history.png"></div>
         <div class="reload" id="reload" onclick="location.reload()"><img src="imgs/reload.png"></div>
-        <div class="hide" onclick="onHide()"><img src="imgs/hide.png"></div>
+        <div class="cal" id="cal" onclick="onCal()"><img src="imgs/calculator.png"></div>
     </div>
     <div class="bar" id="bar">
         <div class="historyback" onclick="onBarButtonBack()"><img id="imgbefore" src="imgs/back_black.png"></div>
     </div>
-    <div class="main">
+    <div class="main" id="main">
         <div class="searchbar">
             <img src="imgs/google.png">
             <input type="text" onkeydown="onkeywords()" id="keywords">
@@ -34,6 +35,29 @@
             <a href="https://azure.microsoft.com/zh-cn/"><div><img src="imgs/azure-blue.png"></div></a>
             <a href="https://github.com"><div><img src="imgs/GitHub.png"></div></a>
         </div>
+    </div>
+    <div class="mainCal" id="mainCal" hidden>
+        <form class="card" name="cal" action="" id="card">
+            <input type="text" class="value" name="txt" readonly="readonly" />
+            <span class="clear" onclick="document.cal.txt.value = ''" style="margin-left: 10px;">c</span>
+            <span class="num" onclick="document.cal.txt.value += '/'">/</span>
+            <span class="num" onclick="document.cal.txt.value += '*'" style="margin-right: 10px;">*</span>
+            <span class="num" onclick="document.cal.txt.value += '7'" style="margin-left: 10px;">7</span>
+            <span class="num" onclick="document.cal.txt.value += '8'">8</span>
+            <span class="num" onclick="document.cal.txt.value += '9'">9</span>
+            <span class="num" onclick="document.cal.txt.value += '-'">-</span>
+            <span class="num" onclick="document.cal.txt.value += '4'" style="margin-left: 10px;">4</span>
+            <span class="num" onclick="document.cal.txt.value += '5'">5</span>
+            <span class="num" onclick="document.cal.txt.value += '6'">6</span>
+            <span class="num" onclick="document.cal.txt.value += '+'">+</span>
+            <span class="num" onclick="document.cal.txt.value += '1'" style="margin-left: 10px;">1</span>
+            <span class="num" onclick="document.cal.txt.value += '2'">2</span>
+            <span class="num" onclick="document.cal.txt.value += '3'">3</span>
+            <span class="num" onclick="document.cal.txt.value += '0'">0</span>
+            <span class="num" onclick="document.cal.txt.value += '00'"style="margin-left: 10px;">00</span>
+            <span class="num" onclick="document.cal.txt.value += '.'">.</span>
+            <span class="result" onclick="document.cal.txt.value = eval(document.cal.txt.value)">=</span>
+        </form>
     </div>
     <a href="neumorphismindex.html" class="button" id="button">neumorphism</a>
 </body>
