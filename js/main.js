@@ -6,8 +6,10 @@ i.onload = function() {
 };
 i.onerror = function() {
     console.log('未联网');
-    document.getElementById('background').style.backgroundImage = "url('../imgs/background.png')";
+    document.getElementById('background').style.backgroundImage = "url('imgs/background.png')";
 };
+
+console.log(a);
 
 function onkeywords() {
   if(event.keyCode==13) {
