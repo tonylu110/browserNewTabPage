@@ -9,12 +9,20 @@
     <script src="js/main.js"></script>
 </head>
 <body>
+    <div class="title">
+        <div class="history" id="history" onclick="onBarButton()"><img src="imgs/fy_ic_history.png"></div>
+        <div class="reload" id="reload" onclick="location.reload()"><img src="imgs/reload.png"></div>
+        <div class="hide" onclick="onHide()"><img src="imgs/hide.png"></div>
+    </div>
+    <div class="bar" id="bar">
+        <div class="historyback" onclick="onBarButtonBack()"><img id="imgbefore" src="imgs/back_black.png"></div>
+    </div>
     <div class="main">
         <div class="searchbar">
             <img src="imgs/google.png">
             <input type="text" onkeydown="onkeywords()" id="keywords">
         </div>
-        <div class="link">
+        <div class="link" id="mainlink">
             <a href="https://google.com"><div><img src="imgs/google.png"></div></a>
             <a href="https://youtube.com"><div><img src="imgs/youtube.png"></div></a>
             <a href="https://bing.com"><div style="padding: 15px; width: 70px; height: 70px;"><img src="imgs/bing-logo.png"></div></a>
@@ -27,6 +35,6 @@
             <a href="https://github.com"><div><img src="imgs/GitHub.png"></div></a>
         </div>
     </div>
-    <a href="neumorphismindex.html" class="button">neumorphism</a>
+    <a href="neumorphismindex.html" class="button" id="button">neumorphism</a>
 </body>
 </html>
