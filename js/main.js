@@ -1,15 +1,13 @@
 var i = new Image();
 i.src = 'https://api.iyk0.com/ecy/api.php';
 i.onload = function() {
-    console.log('正常联网');
+    console.log('network is working');
     document.getElementById('background').style.backgroundImage = "url('https://api.iyk0.com/ecy/api.php')";
 };
 i.onerror = function() {
-    console.log('未联网');
+    console.log('network is not working');
     document.getElementById('background').style.backgroundImage = "url('imgs/background.png')";
 };
-
-console.log(a);
 
 function onkeywords() {
   if(event.keyCode==13) {
