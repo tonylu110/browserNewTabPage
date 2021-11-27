@@ -1,3 +1,14 @@
+var i = new Image();
+i.src = 'https://api.iyk0.com/ecy/api.php';
+i.onload = function() {
+    console.log('正常联网');
+    document.getElementById('background').style.backgroundImage = "url('https://api.iyk0.com/ecy/api.php')";
+};
+i.onerror = function() {
+    console.log('未联网');
+    document.getElementById('background').style.backgroundImage = "url('../imgs/background.png')";
+};
+
 function onkeywords() {
   if(event.keyCode==13) {
     var keywords = document.getElementById('keywords').value;
