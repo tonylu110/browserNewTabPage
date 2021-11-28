@@ -61,7 +61,6 @@ function onHideOrShow(){
     document.getElementById('searchbar').style.display="";
   }else{
     onShow();
-    document.getElementById('hide').hidden = false;
     document.getElementById('searchbar').style.display="";
   }
 }
