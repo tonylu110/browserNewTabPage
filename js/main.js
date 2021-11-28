@@ -37,19 +37,28 @@ function onShow(){
   document.getElementById('history').hidden = false;
   document.getElementById('reload').hidden = false;
   document.getElementById('cal').hidden = false;
+  document.getElementById('hide').hidden = false;
 }
 
 //This is hide all element function
 function onHide(){
-  var hide = document.getElementById('button').hidden;
-  if(hide == false){
-    document.getElementById("mainlink").style.display="none";
+  document.getElementById("mainlink").style.display="none";
     document.getElementById('button').hidden = true;
     document.getElementById('history').hidden = true;
     document.getElementById('reload').hidden = true;
     document.getElementById('cal').hidden = true;
+    document.getElementById('hide').hidden = true;
+}
+
+//This is hide all element function
+function onHideOrShow(){
+  var hide = document.getElementById('button').hidden;
+  if(hide == false){
+    onHide();
+    document.getElementById('hide').hidden = false;
   }else{
     onShow();
+    document.getElementById('hide').hidden = false;
   }
 }
 
@@ -59,16 +68,11 @@ function onCal(){
   if(hide == false){
     document.getElementById('main').style.display="none";
     document.getElementById('mainCal').hidden = false;
-    document.getElementById('button').hidden = true;
-    document.getElementById('hide').hidden = true;
-    document.getElementById('history').hidden = true;
-    document.getElementById('reload').hidden = true;
+    onHide();
+    document.getElementById('cal').hidden = false;
   }else{
     document.getElementById('main').style.display="";
     document.getElementById('mainCal').hidden = true;
-    document.getElementById('button').hidden = false;
-    document.getElementById('history').hidden = false;
-    document.getElementById('reload').hidden = false;
-    document.getElementById('hide').hidden = false;
+    onShow();
   }
 }

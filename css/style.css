@@ -120,7 +120,7 @@ a{
     top: 0;
     right: 0;
 }
-.history{
+.titleButton{
     width: 30px;
     height: 30px;
     padding: 10px;
@@ -132,67 +132,10 @@ a{
     backdrop-filter: blur(20px);
     cursor: pointer
 }
-.history:active{
+.titleButton:active{
     background-color: #00000010;
 }
-.history img{
-    width: 100%;
-    height: 100%;
-}
-.reload{
-    width: 30px;
-    height: 30px;
-    padding: 10px;
-    margin-top: 20px;
-    margin-right: 20px;
-    background-color: #ffffff90;
-    box-shadow: 5px 5px 30px #00000050;
-    border-radius: 50%;
-    backdrop-filter: blur(20px);
-    cursor: pointer
-}
-.reload:active{
-    background-color: #00000010;
-}
-.reload img{
-    width: 100%;
-    height: 100%;
-}
-.hide{
-    width: 30px;
-    height: 30px;
-    padding: 10px;
-    margin-top: 20px;
-    margin-right: 20px;
-    background-color: #ffffff90;
-    box-shadow: 5px 5px 30px #00000050;
-    border-radius: 50%;
-    backdrop-filter: blur(20px);
-    cursor: pointer
-}
-.hide:active{
-    background-color: #00000010;
-}
-.hide img{
-    width: 100%;
-    height: 100%;
-}
-.cal{
-    width: 30px;
-    height: 30px;
-    padding: 10px;
-    margin-top: 20px;
-    margin-right: 20px;
-    background-color: #ffffff90;
-    box-shadow: 5px 5px 30px #00000050;
-    border-radius: 50%;
-    backdrop-filter: blur(20px);
-    cursor: pointer
-}
-.cal:active{
-    background-color: #00000010;
-}
-.cal img{
+.titleButton img{
     width: 100%;
     height: 100%;
 }
