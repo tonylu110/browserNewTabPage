@@ -38,16 +38,18 @@ function onShow(){
   document.getElementById('reload').hidden = false;
   document.getElementById('cal').hidden = false;
   document.getElementById('hide').hidden = false;
+  document.getElementById('searchbar').style.display="";
 }
 
 //This is hide all element function
 function onHide(){
   document.getElementById("mainlink").style.display="none";
-    document.getElementById('button').hidden = true;
-    document.getElementById('history').hidden = true;
-    document.getElementById('reload').hidden = true;
-    document.getElementById('cal').hidden = true;
-    document.getElementById('hide').hidden = true;
+  document.getElementById('button').hidden = true;
+  document.getElementById('history').hidden = true;
+  document.getElementById('reload').hidden = true;
+  document.getElementById('cal').hidden = true;
+  document.getElementById('hide').hidden = true;
+  document.getElementById('searchbar').style.display="none";
 }
 
 //This is hide all element function
@@ -56,9 +58,11 @@ function onHideOrShow(){
   if(hide == false){
     onHide();
     document.getElementById('hide').hidden = false;
+    document.getElementById('searchbar').style.display="";
   }else{
     onShow();
     document.getElementById('hide').hidden = false;
+    document.getElementById('searchbar').style.display="";
   }
 }
 
@@ -66,12 +70,10 @@ function onHideOrShow(){
 function onCal(){
   var hide = document.getElementById('button').hidden;
   if(hide == false){
-    document.getElementById('main').style.display="none";
     document.getElementById('mainCal').hidden = false;
     onHide();
     document.getElementById('cal').hidden = false;
   }else{
-    document.getElementById('main').style.display="";
     document.getElementById('mainCal').hidden = true;
     onShow();
   }
