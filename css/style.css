@@ -250,3 +250,24 @@ a{
     width: 180px;
     margin-bottom: 10px;
 }
+
+/* Clock css */
+.mainClock{
+    width: 750px;
+    height: 400px;
+    background-color: #ffffff30;
+    border-radius: 40px;
+    backdrop-filter: blur(40px);
+    border-top:2px solid #ffffff60;
+    border-left:2px solid #ffffff60;
+    box-shadow: 10px 5px 50px #00000050;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+#time{
+    font-weight: bold;
+    font-size: 150px;
+}

@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js"></script>
 </head>
-<body id="background">
+<body id="background" onload="getTime()">
     <!-- This is top-left button -->
     <div class="title">
         <div class="titleButton" id="hide" onclick="onHideOrShow()"><img src="imgs/hide.png"></div>
         <div class="titleButton" id="history" onclick="onBarButton()"><img src="imgs/fy_ic_history.png"></div>
         <div class="titleButton" id="reload" onclick="location.reload()"><img src="imgs/reload.png"></div>
         <div class="titleButton" id="cal" onclick="onCal()"><img src="imgs/calculator.png"></div>
+        <div class="titleButton" id="clock" onclick="onClock()"><img src="imgs/timer.png"></div>
     </div>
     <!-- This is history bar -->
     <div class="bar" id="bar">
@@ -62,6 +63,10 @@
             <span class="num" onclick="document.cal.txt.value += '.'">.</span>
             <span class="result" onclick="document.cal.txt.value = eval(document.cal.txt.value)">=</span>
         </form>
+    </div>
+    <!-- This is Clock area -->
+    <div class="mainClock" id="mainClock" style="display: none;">
+        <div id="time"></div>
     </div>
     <!-- This is bottem button -->
     <a href="neumorphismindex.html" class="button" id="button">neumorphism</a>

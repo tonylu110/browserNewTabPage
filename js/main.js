@@ -24,7 +24,7 @@ function onkeywords() {
 //This is historybar function
 function onBarButton(){
   document.getElementById('bar').className = 'barSel'; //change historyBar style to barSelect style
-  document.getElementById('imgbefore').className = 'imgafter' //change historyBarIcon style to historyBarIconSelect style
+  document.getElementById('imgbefore').className = 'imgafter' //change historyBarIcon style to historyBarIconSelect style1
 }
 
 //This is historybar back function
@@ -42,6 +42,7 @@ function onShow(){
   document.getElementById('cal').hidden = false; // show calculator button
   document.getElementById('hide').hidden = false; // show hide button
   document.getElementById('searchbar').style.display=""; //show searchBar button
+  document.getElementById('clock').hidden = false; //show clock button
 }
 
 //This is hide all element function
@@ -53,6 +54,7 @@ function onHide(){
   document.getElementById('cal').hidden = true; //hide calculator button
   document.getElementById('hide').hidden = true; //hide hide button
   document.getElementById('searchbar').style.display="none"; //hide searchBar button
+  document.getElementById('clock').hidden = true; //hide clock button
 }
 
 //This is hide all element function
@@ -78,6 +80,28 @@ function onCal(){
     document.getElementById('cal').hidden = false; //show calculator button
   }else{
     document.getElementById('mainCal').hidden = true; //hide calculator element
+    onShow();
+  }
+}
+
+//This is clock function
+function getTime(){
+  var time=new Date();
+  var h=time.getHours();
+  var m=time.getMinutes();
+  var s=time.getSeconds();
+
+  document.getElementById("time").innerHTML=h+":"+m+":"+s;
+}
+function onClock(){
+  setInterval("getTime()",1000);
+  var hide = document.getElementById('button').hidden;
+  if(hide == false){
+    document.getElementById('mainClock').style.display=""; //show clock element
+    onHide();
+    document.getElementById('clock').hidden = false; //show calculator button
+  }else{
+    document.getElementById('mainClock').style.display="none"; //hide clock element
     onShow();
   }
 }
