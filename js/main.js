@@ -148,9 +148,13 @@ function changeStyle(){
   console.log(screen);
   if(screen <= 813){
     document.getElementById('searchbar').style.width = '330px';
-    document.getElementById('mainlink').style.width = '370px'
+    document.getElementById('mainlink').style.width = '370px';
+    document.getElementById('title').hidden = true;
+    document.getElementById('button').hidden = true;
   }else{
     document.getElementById('searchbar').style.width = '570px';
-    document.getElementById('mainlink').style.width = '610px'
+    document.getElementById('mainlink').style.width = '610px';
+    document.getElementById('title').hidden = false;
+    document.getElementById('button').hidden = false;
   }
 }
