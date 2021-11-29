@@ -24,9 +24,18 @@
     <!-- This is searchmain area -->
     <div class="main" id="main">
         <div class="searchbar" id="searchbar">
-            <img src="imgs/google.png">
-            <input type="text" onkeydown="onkeywords()" id="keywords">
+            <img id="searchEngine" src="imgs/google.png" onclick="onSearchImg()">
+            <input type="text" onkeydown="onkeywords()" onclick="getSearchEngine()" id="keywords">
         </div>
+        <!-- This is moreSearch area -->
+        <div class="moreSearch" id="moreSearch" hidden>
+            <div class="searchEngines">
+                <div onclick="onGoogle()"><img src="imgs/google.png"></div>
+                <div onclick="onBing()" style="padding: 15px; width: 70px; height: 70px;"><img src="imgs/bing-logo.png"></div>
+                <div onclick="onBaidu()" style="padding: 20px; height: 60px; width: 60px;"><img src="imgs/baidu.png"></div>
+            </div>
+        </div>
+
         <div class="link" id="mainlink">
             <a href="https://google.com"><div><img src="imgs/google.png"></div></a>
             <a href="https://youtube.com"><div><img src="imgs/youtube.png"></div></a>

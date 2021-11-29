@@ -14,10 +14,23 @@ i.onerror = function() {
 };
 
 //This is searchBar function
+function getSearchEngine(){ //get searchEngin img
+  s = document.getElementById('searchEngine').src;
+  engine = s.substring(s.lastIndexOf("/")+1)
+}
+
 function onkeywords() {
+  getSearchEngine(); //use getSearchEngin function
   if(event.keyCode==13) {
     var keywords = document.getElementById('keywords').value; //get keywords
-    window.open('https://www.google.com/search?q='+keywords,'_self'); //to google search
+    if(engine == 'google.png'){
+      window.open('https://www.google.com/search?q='+keywords,'_self'); //if engine is google google to google search
+    }else if(engine == 'baidu.png'){
+      window.open('https://www.baidu.com/s?wd='+keywords,'_self'); //if engine is baidu to baidu search
+    }else{
+      window.open('https://cn.bing.com/search?q='+keywords,'_self'); //if engine is bing to bing search
+    }
+    
   }
 }
 
@@ -104,4 +117,27 @@ function onClock(){
     document.getElementById('mainClock').style.display="none"; //hide clock element
     onShow();
   }
+}
+
+//change search engine
+function onSearchImg(){
+  var hide = document.getElementById('moreSearch').hidden;
+  if(hide == true){
+    document.getElementById('moreSearch').hidden = false;
+  }else{
+    document.getElementById('moreSearch').hidden = true;
+  }
+}
+//click img to engine img
+function onGoogle(){
+  document.getElementById('moreSearch').hidden = true;
+  document.getElementById('searchEngine').src = 'imgs/google.png';
+}
+function onBing(){
+  document.getElementById('moreSearch').hidden = true;
+  document.getElementById('searchEngine').src = 'imgs/bing-logo.png';
+}
+function onBaidu(){
+  document.getElementById('moreSearch').hidden = true;
+  document.getElementById('searchEngine').src = 'imgs/baidu.png';
 }

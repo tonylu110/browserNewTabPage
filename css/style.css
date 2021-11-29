@@ -53,6 +53,10 @@ body{
     height: 30px;
     width: 30px;
     margin-right: 10px;
+    border-radius: 50%;
+}
+.searchbar img:hover{
+    background-color: #00000010;
 }
 
 /* This is favourite link style */
@@ -270,4 +274,35 @@ a{
 #time{
     font-weight: bold;
     font-size: 150px;
+}
+
+/* searchengins css */
+
+.moreSearch{
+    position: fixed;
+    background-color: #ffffff90;
+    backdrop-filter: blur(20px);
+    margin-top: 70px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 30px #00000050;
+    border-top: 2px solid #ffffff70;
+    border-left: 2px solid #ffffff70;
+    z-index: 100;
+}
+.searchEngines{
+    height: 100px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+}
+.searchEngines div{
+    padding: 25px;
+    border-radius: 20px;
+}
+.searchEngines div img{
+    width: 100%;
+    height: 100%;
+}
+.searchEngines div:hover{
+    background-color: #00000010;
 }
