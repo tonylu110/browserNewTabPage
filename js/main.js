@@ -141,3 +141,16 @@ function onBaidu(){
   document.getElementById('moreSearch').hidden = true;
   document.getElementById('searchEngine').src = 'imgs/baidu.png';
 }
+
+// get screen width to change style
+function changeStyle(){
+  var screen = document.body.offsetWidth;
+  console.log(screen);
+  if(screen <= 813){
+    document.getElementById('searchbar').style.width = '330px';
+    document.getElementById('mainlink').style.width = '370px'
+  }else{
+    document.getElementById('searchbar').style.width = '570px';
+    document.getElementById('mainlink').style.width = '610px'
+  }
+}

@@ -123,6 +123,7 @@ a{
     position: fixed;
     top: 0;
     right: 0;
+    z-index: 100;
 }
 .titleButton{
     width: 30px;
@@ -155,6 +156,7 @@ a{
     backdrop-filter: blur(20px);
     background-color: #ffffff90;
     box-shadow: -10px 0px 20px #00000050;
+    z-index: 110;
 }
 .barSel{
     height: 100vh;
@@ -166,6 +168,7 @@ a{
     transition: width 0.5s;
     background-color: #ffffff90;
     backdrop-filter: blur(20px);
+    z-index: 110;
 }
 .historyback{
     width: 40px;
