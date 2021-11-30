@@ -159,7 +159,7 @@ function onBaidu(){
 // get screen width to change style
 function changeStyle(){
   var screenWidth = document.body.offsetWidth;
-  var screenHeight = document.body.offsetHeight - 150;
+  var screenHeight = document.body.offsetHeight - 100;
   if(screenWidth <= 813){
     document.getElementById('searchbar').style.width = '330px';
     document.getElementById('mainlink').style.width = '370px';
@@ -171,6 +171,7 @@ function changeStyle(){
     document.getElementById('clock').hidden = true; //hide clock button
     document.getElementById('history').hidden = true; //hide history button
     document.getElementById('button').style.marginBottom = -screenHeight + 'px';
+    document.getElementById('azure').hidden = true;
   }else{
     document.getElementById('searchbar').style.width = '570px';
     document.getElementById('mainlink').style.width = '610px';
