@@ -74,18 +74,28 @@ function onHide(){
 //if bottemButton is hide all element will hide
 //else show all element
 function onHideOrShow(){
+  var screenWidth = document.body.offsetWidth;
   var hide = document.getElementById('button').hidden;
   if(hide == false){ 
     onHide();
     document.getElementById('hide').hidden = false; //show hide button
     document.getElementById('searchbar').style.display=""; //show searchBar element
+    if(screenWidth <= 813){
+      document.getElementById('hide').style.marginRight = '0px';
+    }
   }else{
     onShow();
+    if(screenWidth <= 813){
+      document.getElementById('history').hidden = true; //hide history button
+      document.getElementById('clock').hidden = true; //hide clock button
+      document.getElementById('hide').style.marginRight = '20px';
+    }
   }
 }
 
 //This is calculator function
 function onCal(){
+  var screenWidth = document.body.offsetWidth;
   var hide = document.getElementById('button').hidden;
   if(hide == false){
     document.getElementById('mainCal').hidden = false; //show calculator element
@@ -94,6 +104,10 @@ function onCal(){
   }else{
     document.getElementById('mainCal').hidden = true; //hide calculator element
     onShow();
+    if(screenWidth <= 813){
+      document.getElementById('history').hidden = true; //hide history button
+      document.getElementById('clock').hidden = true; //hide clock button
+    }
   }
 }
 
@@ -144,17 +158,21 @@ function onBaidu(){
 
 // get screen width to change style
 function changeStyle(){
-  var screen = document.body.offsetWidth;
-  console.log(screen);
-  if(screen <= 813){
+  var screenWidth = document.body.offsetWidth;
+  var screenHeight = document.body.offsetHeight - 150;
+  if(screenWidth <= 813){
     document.getElementById('searchbar').style.width = '330px';
     document.getElementById('mainlink').style.width = '370px';
-    document.getElementById('title').hidden = true;
-    document.getElementById('button').hidden = true;
+    document.getElementById('title').style.display = 'flex';
+    document.getElementById('title').style.width = screenWidth + 'px';
+    document.getElementById('title').style.marginTop = screenHeight + 'px'
+    document.getElementById('title').style.justifyContent = 'center';
+    document.getElementById('cal').style.marginRight = '0'
+    document.getElementById('clock').hidden = true; //hide clock button
+    document.getElementById('history').hidden = true; //hide history button
+    document.getElementById('button').style.marginBottom = -screenHeight + 'px';
   }else{
     document.getElementById('searchbar').style.width = '570px';
     document.getElementById('mainlink').style.width = '610px';
-    document.getElementById('title').hidden = false;
-    document.getElementById('button').hidden = false;
   }
 }
