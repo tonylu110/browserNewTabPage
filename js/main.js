@@ -159,7 +159,7 @@ function onBaidu(){
 // get screen width to change style
 function changeStyle(){
   var screenWidth = document.body.offsetWidth;
-  var screenHeight = document.body.offsetHeight - 100;
+  var screenHeight = document.body.offsetHeight - 150;
   if(screenWidth <= 813){
     document.getElementById('searchbar').style.width = '330px';
     document.getElementById('mainlink').style.width = '370px';
