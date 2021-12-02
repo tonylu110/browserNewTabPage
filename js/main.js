@@ -5,6 +5,9 @@ function elemenetGetId(id){
 function body(){
   return document.body;
 }
+function print(str){
+  return console.log(str);
+}
 
 //This is onload script
 //test 'https://api.iyk0.com/ecy/api.php' can or not work
@@ -13,13 +16,22 @@ function body(){
 var i = new Image();
 i.src = 'https://api.iyk0.com/ecy/api.php';
 i.onload = function() {
-    console.log('network is working');
+    print('network is working');
     elemenetGetId('background').style.backgroundImage = "url('https://api.iyk0.com/ecy/api.php')";
 };
 i.onerror = function() {
-    console.log('network is not working');
+    print('network is not working');
     elemenetGetId('background').style.backgroundImage = "url('imgs/background.png')";
 };
+print('▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇')
+print('▇▇▇▇▇▇hello world！▇▇▇▇▇▇')
+print('▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇')
+print('')
+print('QQ: 1848367623')
+print('Twitter: @Tony_Lu110')
+print('github: https://github.com/tonylu110')
+print('')
+print('This project link is https://github.com/tonylu110/browserNewTabPage')
 
 //This is searchBar function
 function getSearchEngine(){ //get searchEngin img
