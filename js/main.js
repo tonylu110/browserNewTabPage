@@ -1,3 +1,11 @@
+//set function
+function elemenetGetId(id){
+  return document.getElementById(id);
+}
+function body(){
+  return document.body;
+}
+
 //This is onload script
 //test 'https://api.iyk0.com/ecy/api.php' can or not work
 //if it is working to load 'https://api.iyk0.com/ecy/api.php'
@@ -6,23 +14,23 @@ var i = new Image();
 i.src = 'https://api.iyk0.com/ecy/api.php';
 i.onload = function() {
     console.log('network is working');
-    document.getElementById('background').style.backgroundImage = "url('https://api.iyk0.com/ecy/api.php')";
+    elemenetGetId('background').style.backgroundImage = "url('https://api.iyk0.com/ecy/api.php')";
 };
 i.onerror = function() {
     console.log('network is not working');
-    document.getElementById('background').style.backgroundImage = "url('imgs/background.png')";
+    elemenetGetId('background').style.backgroundImage = "url('imgs/background.png')";
 };
 
 //This is searchBar function
 function getSearchEngine(){ //get searchEngin img
-  s = document.getElementById('searchEngine').src;
+  s = elemenetGetId('searchEngine').src;
   engine = s.substring(s.lastIndexOf("/")+1)
 }
 
 function onkeywords() {
   getSearchEngine(); //use getSearchEngin function
   if(event.keyCode==13) {
-    var keywords = document.getElementById('keywords').value; //get keywords
+    var keywords = elemenetGetId('keywords').value; //get keywords
     if(engine == 'google.png'){
       window.open('https://www.google.com/search?q='+keywords,'_self'); //if engine is google google to google search
     }else if(engine == 'baidu.png'){
@@ -36,77 +44,77 @@ function onkeywords() {
 
 //This is historybar function
 function onBarButton(){
-  document.getElementById('bar').className = 'barSel'; //change historyBar style to barSelect style
-  document.getElementById('imgbefore').className = 'imgafter' //change historyBarIcon style to historyBarIconSelect style1
+  elemenetGetId('bar').className = 'barSel'; //change historyBar style to barSelect style
+  elemenetGetId('imgbefore').className = 'imgafter' //change historyBarIcon style to historyBarIconSelect style1
 }
 
 //This is historybar back function
 function onBarButtonBack(){
-  document.getElementById('bar').className = 'bar'; //change hidtoryBar style to barBefore style
-  document.getElementById('imgbefore').className = 'imgbefore' //change historyBarIcon style to historyBayIconBefore style
+  elemenetGetId('bar').className = 'bar'; //change hidtoryBar style to barBefore style
+  elemenetGetId('imgbefore').className = 'imgbefore' //change historyBarIcon style to historyBayIconBefore style
 }
 
 //This is show all element function
 function onShow(){
-  document.getElementById('mainlink').style.display=""; //show link element
-  document.getElementById('button').hidden = false; //show bottom button
-  document.getElementById('history').hidden = false; //show history button
-  document.getElementById('reload').hidden = false; //show reload button
-  document.getElementById('cal').hidden = false; // show calculator button
-  document.getElementById('hide').hidden = false; // show hide button
-  document.getElementById('searchbar').style.display=""; //show searchBar button
-  document.getElementById('clock').hidden = false; //show clock button
+  elemenetGetId('mainlink').style.display=""; //show link element
+  elemenetGetId('button').hidden = false; //show bottom button
+  elemenetGetId('history').hidden = false; //show history button
+  elemenetGetId('reload').hidden = false; //show reload button
+  elemenetGetId('cal').hidden = false; // show calculator button
+  elemenetGetId('hide').hidden = false; // show hide button
+  elemenetGetId('searchbar').style.display=""; //show searchBar button
+  elemenetGetId('clock').hidden = false; //show clock button
 }
 
 //This is hide all element function
 function onHide(){
-  document.getElementById("mainlink").style.display="none"; //hide link elemnet
-  document.getElementById('button').hidden = true; //hide bottom button
-  document.getElementById('history').hidden = true; //hide history button
-  document.getElementById('reload').hidden = true; //hide reload button
-  document.getElementById('cal').hidden = true; //hide calculator button
-  document.getElementById('hide').hidden = true; //hide hide button
-  document.getElementById('searchbar').style.display="none"; //hide searchBar button
-  document.getElementById('clock').hidden = true; //hide clock button
+  elemenetGetId("mainlink").style.display="none"; //hide link elemnet
+  elemenetGetId('button').hidden = true; //hide bottom button
+  elemenetGetId('history').hidden = true; //hide history button
+  elemenetGetId('reload').hidden = true; //hide reload button
+  elemenetGetId('cal').hidden = true; //hide calculator button
+  elemenetGetId('hide').hidden = true; //hide hide button
+  elemenetGetId('searchbar').style.display="none"; //hide searchBar button
+  elemenetGetId('clock').hidden = true; //hide clock button
 }
 
 //This is hide all element function
 //if bottemButton is hide all element will hide
 //else show all element
 function onHideOrShow(){
-  var screenWidth = document.body.offsetWidth;
-  var hide = document.getElementById('button').hidden;
+  var screenWidth = body().offsetWidth;
+  var hide = elemenetGetId('button').hidden;
   if(hide == false){ 
     onHide();
-    document.getElementById('hide').hidden = false; //show hide button
-    document.getElementById('searchbar').style.display=""; //show searchBar element
+    elemenetGetId('hide').hidden = false; //show hide button
+    elemenetGetId('searchbar').style.display=""; //show searchBar element
     if(screenWidth <= 813){
-      document.getElementById('hide').style.marginRight = '0px';
+      elemenetGetId('hide').style.marginRight = '0px';
     }
   }else{
     onShow();
     if(screenWidth <= 813){
-      document.getElementById('history').hidden = true; //hide history button
-      document.getElementById('clock').hidden = true; //hide clock button
-      document.getElementById('hide').style.marginRight = '20px';
+      elemenetGetId('history').hidden = true; //hide history button
+      elemenetGetId('clock').hidden = true; //hide clock button
+      elemenetGetId('hide').style.marginRight = '20px';
     }
   }
 }
 
 //This is calculator function
 function onCal(){
-  var screenWidth = document.body.offsetWidth;
-  var hide = document.getElementById('button').hidden;
+  var screenWidth = body().offsetWidth;
+  var hide = elemenetGetId('button').hidden;
   if(hide == false){
-    document.getElementById('mainCal').hidden = false; //show calculator element
+    elemenetGetId('mainCal').hidden = false; //show calculator element
     onHide();
-    document.getElementById('cal').hidden = false; //show calculator button
+    elemenetGetId('cal').hidden = false; //show calculator button
   }else{
-    document.getElementById('mainCal').hidden = true; //hide calculator element
+    elemenetGetId('mainCal').hidden = true; //hide calculator element
     onShow();
     if(screenWidth <= 813){
-      document.getElementById('history').hidden = true; //hide history button
-      document.getElementById('clock').hidden = true; //hide clock button
+      elemenetGetId('history').hidden = true; //hide history button
+      elemenetGetId('clock').hidden = true; //hide clock button
     }
   }
 }
@@ -118,66 +126,66 @@ function getTime(){
   var m=time.getMinutes();
   var s=time.getSeconds();
 
-  document.getElementById("time").innerHTML=h+":"+m+":"+s;
+  elemenetGetId("time").innerHTML=h+":"+m+":"+s;
 }
 function onClock(){
   setInterval("getTime()",1000);
-  var hide = document.getElementById('button').hidden;
+  var hide = elemenetGetId('button').hidden;
   if(hide == false){
-    document.getElementById('mainClock').style.display=""; //show clock element
+    elemenetGetId('mainClock').style.display=""; //show clock element
     onHide();
-    document.getElementById('clock').hidden = false; //show calculator button
+    elemenetGetId('clock').hidden = false; //show calculator button
   }else{
-    document.getElementById('mainClock').style.display="none"; //hide clock element
+    elemenetGetId('mainClock').style.display="none"; //hide clock element
     onShow();
   }
 }
 
 //change search engine
 function onSearchImg(){
-  var hide = document.getElementById('moreSearch').hidden;
+  var hide = elemenetGetId('moreSearch').hidden;
   if(hide == true){
-    document.getElementById('moreSearch').hidden = false;
+    elemenetGetId('moreSearch').hidden = false;
   }else{
-    document.getElementById('moreSearch').hidden = true;
+    elemenetGetId('moreSearch').hidden = true;
   }
 }
 //click img to engine img
 function onGoogle(){
-  document.getElementById('moreSearch').hidden = true;
-  document.getElementById('searchEngine').src = 'imgs/google.png';
+  elemenetGetId('moreSearch').hidden = true;
+  elemenetGetId('searchEngine').src = 'imgs/google.png';
 }
 function onBing(){
-  document.getElementById('moreSearch').hidden = true;
-  document.getElementById('searchEngine').src = 'imgs/bing-logo.png';
+  elemenetGetId('moreSearch').hidden = true;
+  elemenetGetId('searchEngine').src = 'imgs/bing-logo.png';
 }
 function onBaidu(){
-  document.getElementById('moreSearch').hidden = true;
-  document.getElementById('searchEngine').src = 'imgs/baidu.png';
+  elemenetGetId('moreSearch').hidden = true;
+  elemenetGetId('searchEngine').src = 'imgs/baidu.png';
 }
 
 // get screen width to change style
 function changeStyle(){
-  var screenWidth = document.body.offsetWidth;
-  var screenHeight = document.body.offsetHeight - 140;
+  var screenWidth = body().offsetWidth;
+  var screenHeight = body().offsetHeight - 140;
   if(screenWidth <= 813){
-    document.getElementById('searchbar').style.width = '330px';
-    document.getElementById('mainlink').style.width = '370px';
-    document.getElementById('title').style.display = 'flex';
-    document.getElementById('title').style.width = screenWidth + 'px';
-    document.getElementById('title').style.marginTop = screenHeight + 'px'
-    document.getElementById('title').style.justifyContent = 'center';
-    document.getElementById('cal').style.marginRight = '0'
-    document.getElementById('clock').hidden = true; //hide clock button
-    document.getElementById('history').hidden = true; //hide history button
-    document.getElementById('button').style.marginBottom = -screenHeight + 'px';
-    document.getElementById('azure').hidden = true;
-    document.getElementById('ithome').hidden = true;
-    document.getElementById('chromeStore').hidden = true;
-    document.getElementById('aliyun').hidden = true;
-    document.getElementById('main').style.marginTop = '-100px';
+    elemenetGetId('searchbar').style.width = '330px';
+    elemenetGetId('mainlink').style.width = '370px';
+    elemenetGetId('title').style.display = 'flex';
+    elemenetGetId('title').style.width = screenWidth + 'px';
+    elemenetGetId('title').style.marginTop = screenHeight + 'px'
+    elemenetGetId('title').style.justifyContent = 'center';
+    elemenetGetId('cal').style.marginRight = '0'
+    elemenetGetId('clock').hidden = true; //hide clock button
+    elemenetGetId('history').hidden = true; //hide history button
+    elemenetGetId('button').style.marginBottom = -screenHeight + 'px';
+    elemenetGetId('azure').hidden = true;
+    elemenetGetId('ithome').hidden = true;
+    elemenetGetId('chromeStore').hidden = true;
+    elemenetGetId('aliyun').hidden = true;
+    elemenetGetId('main').style.marginTop = '-100px';
   }else{
-    document.getElementById('searchbar').style.width = '570px';
-    document.getElementById('mainlink').style.width = '610px';
+    elemenetGetId('searchbar').style.width = '570px';
+    elemenetGetId('mainlink').style.width = '610px';
   }
 }
