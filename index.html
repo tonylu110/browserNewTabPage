@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="imgs/favicon.ico" />
     <script src="js/main.js"></script>
+    <script src="js/print.js"></script>
 </head>
 <body id="background" onload="getTime();changeStyle()">
     <!-- This is top-left button -->
     <div class="title" id="title">
-        <div class="titleButton" id="hide" onclick="onHideOrShow()"><img src="imgs/hide.png"></div>
-        <div class="titleButton" id="history" onclick="onBarButton()"><img src="imgs/fy_ic_history.png"></div>
-        <div class="titleButton" id="reload" onclick="location.reload()"><img src="imgs/reload.png"></div>
-        <div class="titleButton" id="cal" onclick="onCal()"><img src="imgs/calculator.png"></div>
-        <div class="titleButton" id="clock" onclick="onClock()"><img src="imgs/timer.png"></div>
+        <div class="titleButton" id="hide" onclick="onHideOrShow()"><img src="imgs/hide.png"></div><!--hide button-->
+        <div class="titleButton" id="history" onclick="onBarButton()"><img src="imgs/fy_ic_history.png"></div><!--history button-->
+        <div class="titleButton" id="reload" onclick="location.reload()"><img src="imgs/reload.png"></div><!--reload button-->
+        <div class="titleButton" id="cal" onclick="onCal()"><img src="imgs/calculator.png"></div><!--calculator button-->
+        <div class="titleButton" id="clock" onclick="onClock()"><img src="imgs/timer.png"></div><!--clock button-->
     </div>
     <!-- This is history bar -->
     <div class="bar" id="bar">
@@ -24,35 +25,35 @@
     </div>
     <!-- This is searchmain area -->
     <div class="main" id="main">
-        <div class="searchbar" id="searchbar">
+        <div class="searchbar" id="searchbar"><!--search bar-->
             <img id="searchEngine" src="imgs/google.png" onclick="onSearchImg()">
             <input type="text" onkeydown="onkeywords()" onclick="getSearchEngine()" id="keywords">
         </div>
         <!-- This is moreSearch area -->
         <div class="moreSearch" id="moreSearch" hidden>
-            <div class="searchEngines">
-                <div onclick="onGoogle()"><img src="imgs/google.png"></div>
-                <div onclick="onBing()" style="padding: 15px; width: 70px; height: 70px;"><img src="imgs/bing-logo.png"></div>
-                <div onclick="onBaidu()" style="padding: 20px; height: 60px; width: 60px;"><img src="imgs/baidu.png"></div>
+            <div class="searchEngines"><!--set search engine-->
+                <div onclick="onGoogle()"><img src="imgs/google.png"></div><!--google-->
+                <div onclick="onBing()" style="padding: 15px; width: 70px; height: 70px;"><img src="imgs/bing-logo.png"></div><!--bing-->
+                <div onclick="onBaidu()" style="padding: 20px; height: 60px; width: 60px;"><img src="imgs/baidu.png"></div><!--baidu-->
             </div>
         </div>
 
-        <div class="link" id="mainlink">
-            <a href="https://google.com"><div><img src="imgs/google.png"></div></a>
-            <a href="https://youtube.com"><div><img src="imgs/youtube.png"></div></a>
-            <a href="https://bing.com"><div style="padding: 15px; width: 70px; height: 70px;"><img src="imgs/bing-logo.png"></div></a>
-            <a href="https://baidu.com"><div style="padding: 20px; height: 60px; width: 60px;"><img src="imgs/baidu.png"></div></a>
-            <a href="https://bilibili.com"><div style="padding: 15px; width: 70px; height: 70px;"><img src="imgs/icon_bilibili-circle.png"></div></a>
-            <a href="https://ithome.com" id="ithome"><div style="padding: 10px; width: 80px; height: 80px;"><img src="imgs/IT之家.png"></div></a>
-            <a href="https://chrome.google.com/webstore/category/extensions" id="chromeStore"><div><img src="imgs/Chrome_Web_Store_logo_2012-2015.svg.png" ></div></a>
-            <a href="https://www.aliyun.com/" id="aliyun"><div style="padding: 20px; height: 60px; width: 60px;"><img src="imgs/阿里云.png"></div></a>
-            <a href="https://azure.microsoft.com/zh-cn/" id="azure"><div><img src="imgs/azure-blue.png"></div></a>
-            <a href="https://github.com"><div><img src="imgs/GitHub.png"></div></a>
+        <div class="link" id="mainlink"><!--links-->
+            <a href="https://google.com"><div><img src="imgs/google.png"></div></a><!--google link-->
+            <a href="https://youtube.com"><div><img src="imgs/youtube.png"></div></a><!--youtube link-->
+            <a href="https://bing.com"><div style="padding: 15px; width: 70px; height: 70px;"><img src="imgs/bing-logo.png"></div></a><!--bing link-->
+            <a href="https://baidu.com"><div style="padding: 20px; height: 60px; width: 60px;"><img src="imgs/baidu.png"></div></a><!--baidu link-->
+            <a href="https://bilibili.com"><div style="padding: 15px; width: 70px; height: 70px;"><img src="imgs/icon_bilibili-circle.png"></div></a><!--bilibili link-->
+            <a href="https://ithome.com" id="ithome"><div style="padding: 10px; width: 80px; height: 80px;"><img src="imgs/IT之家.png"></div></a><!--ithome link-->
+            <a href="https://chrome.google.com/webstore/category/extensions" id="chromeStore"><div><img src="imgs/Chrome_Web_Store_logo_2012-2015.svg.png" ></div></a><!--chrome web store link-->
+            <a href="https://www.aliyun.com/" id="aliyun"><div style="padding: 20px; height: 60px; width: 60px;"><img src="imgs/阿里云.png"></div></a><!--aliyun link-->
+            <a href="https://azure.microsoft.com/zh-cn/" id="azure"><div><img src="imgs/azure-blue.png"></div></a><!--azure link-->
+            <a href="https://github.com"><div><img src="imgs/GitHub.png"></div></a><!--github link-->
         </div>
     </div>
     <!-- This is calculator area -->
     <div class="mainCal" id="mainCal" hidden>
-        <form class="card" name="cal" action="" id="card">
+        <form class="card" name="cal" action="" id="card"><!--calculator card-->
             <input type="text" class="value" name="txt" readonly="readonly" />
             <span class="clear" onclick="document.cal.txt.value = ''" style="margin-left: 10px;">c</span>
             <span class="num" onclick="document.cal.txt.value += '/'">/</span>

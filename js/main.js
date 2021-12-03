@@ -13,25 +13,16 @@ function print(str){
 //test 'https://api.iyk0.com/ecy/api.php' can or not work
 //if it is working to load 'https://api.iyk0.com/ecy/api.php'
 //else load 'imgs/background.png'
-var i = new Image();
-i.src = 'https://api.iyk0.com/ecy/api.php';
-i.onload = function() {
+var backgroundImg = new Image();
+backgroundImg.src = 'https://api.iyk0.com/ecy/api.php';
+backgroundImg.onload = function() {
     print('network is working');
     elemenetGetId('background').style.backgroundImage = "url('https://api.iyk0.com/ecy/api.php')";
 };
-i.onerror = function() {
+backgroundImg.onerror = function() {
     print('network is not working');
     elemenetGetId('background').style.backgroundImage = "url('imgs/background.png')";
 };
-print('▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇')
-print('▇▇▇▇▇▇hello world！▇▇▇▇▇▇')
-print('▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇')
-print('')
-print('QQ: 1848367623')
-print('Twitter: @Tony_Lu110')
-print('github: https://github.com/tonylu110')
-print('')
-print('This project link is https://github.com/tonylu110/browserNewTabPage')
 
 //This is searchBar function
 function getSearchEngine(){ //get searchEngin img
@@ -164,40 +155,40 @@ function onSearchImg(){
 }
 //click img to engine img
 function onGoogle(){
-  elemenetGetId('moreSearch').hidden = true;
-  elemenetGetId('searchEngine').src = 'imgs/google.png';
+  elemenetGetId('moreSearch').hidden = true;// hide more search engines menu
+  elemenetGetId('searchEngine').src = 'imgs/google.png';// change search engine image to google
 }
 function onBing(){
   elemenetGetId('moreSearch').hidden = true;
-  elemenetGetId('searchEngine').src = 'imgs/bing-logo.png';
+  elemenetGetId('searchEngine').src = 'imgs/bing-logo.png';// change search engine image to bing
 }
 function onBaidu(){
   elemenetGetId('moreSearch').hidden = true;
-  elemenetGetId('searchEngine').src = 'imgs/baidu.png';
+  elemenetGetId('searchEngine').src = 'imgs/baidu.png';//change search engine image to baidu
 }
 
 // get screen width to change style
 function changeStyle(){
-  var screenWidth = body().offsetWidth;
-  var screenHeight = body().offsetHeight - 140;
+  var screenWidth = body().offsetWidth;//get screen width
+  var screenHeight = body().offsetHeight - 140;//get tools button margin top
+  //if screen is phone to phone style
   if(screenWidth <= 813){
-    elemenetGetId('searchbar').style.width = '330px';
-    elemenetGetId('mainlink').style.width = '370px';
+    elemenetGetId('searchbar').style.width = '330px';//set search bar to phone style
+    elemenetGetId('mainlink').style.width = '370px';//set links to phone style
     elemenetGetId('title').style.display = 'flex';
+    //set tools button style
     elemenetGetId('title').style.width = screenWidth + 'px';
     elemenetGetId('title').style.marginTop = screenHeight + 'px'
     elemenetGetId('title').style.justifyContent = 'center';
-    elemenetGetId('cal').style.marginRight = '0'
+    elemenetGetId('cal').style.marginRight = '0';//set calculator button margin right to 0px
     elemenetGetId('clock').hidden = true; //hide clock button
     elemenetGetId('history').hidden = true; //hide history button
-    elemenetGetId('button').style.marginBottom = -screenHeight + 'px';
+    elemenetGetId('button').style.marginBottom = -screenHeight + 'px';//hide chenge ui button
+    //hide links button
     elemenetGetId('azure').hidden = true;
     elemenetGetId('ithome').hidden = true;
     elemenetGetId('chromeStore').hidden = true;
     elemenetGetId('aliyun').hidden = true;
-    elemenetGetId('main').style.marginTop = '-100px';
-  }else{
-    elemenetGetId('searchbar').style.width = '570px';
-    elemenetGetId('mainlink').style.width = '610px';
+    elemenetGetId('main').style.marginTop = '-100px';//set search area margin top
   }
 }
