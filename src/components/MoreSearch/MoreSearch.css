@@ -1,0 +1,33 @@
+.more_search{
+    position: fixed;
+    background-color: #ffffff90;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 5px 5px 30px #00000050;
+    border-top: 2px solid #ffffff70;
+    border-left: 2px solid #ffffff70;
+    z-index: 4;
+    transition: transform 0.3s, opacity 0.2s;
+    margin-top: -30px;
+}
+.search_engines{
+    max-width: 500px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.search_engines div{
+    padding: 25px;
+    border-radius: 20px;
+}
+.search_engines div img{
+    width: 50px;
+    height: 50px;
+}
+.search_engines div:hover{
+    background-color: #00000010;
+}
+
+.more_search_show{
+    transform: translateY(100px);
+}
