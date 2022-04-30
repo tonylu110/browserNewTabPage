@@ -44,7 +44,7 @@
     background-color: #44444450;
 }
 .search_btn{
-    width: 40px;
+    width: 0px;
     text-align: center;
     color: black;
     font-weight: bold;
@@ -52,5 +52,7 @@
     line-height: 28px;
     cursor: pointer;
     user-select: none;
+    overflow: hidden;
+    white-space: nowrap;
     transition: 0.3s;
 }

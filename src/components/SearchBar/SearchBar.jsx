@@ -6,15 +6,19 @@ export default class SearchBar extends Component {
     moreSearchShow: true,
     searchEngine: 'google',
     searchEngineImg: 'img/google.png',
-    keyword: ''
+    keyword: '',
+    searchBtnShow: {
+      keywordsRight: 'none',
+      searchBtn: ''
+    }
   }
   render() {
     return (
       <div className='search_bar'>
         <img alt='' src={this.state.searchEngineImg} onClick={() => {this.clickSearchImg(this.state.moreSearchShow)}} />
         <input type="text" onKeyUp={this.searchKeyword} />
-        <div className="keywords_right"></div>
-        <div className="search_btn" onClick={() => this.toSearch(this.state.searchEngine)}>搜索</div>
+        <div className="keywords_right" style={{display: this.state.searchBtnShow.keywordsRight}}></div>
+        <div className="search_btn" onClick={() => this.toSearch(this.state.searchEngine)} style={{width: this.state.searchBtnShow.searchBtn}}>搜索</div>
       </div>
     )
   }
@@ -25,6 +29,21 @@ export default class SearchBar extends Component {
     })
   }
   searchKeyword = (e) => {
+    if (e.target.value.length > 0) {
+      this.setState({
+        searchBtnShow: {
+          keywordsRight: '',
+          searchBtn: '45px'
+        }
+      })
+    } else {
+      this.setState({
+        searchBtnShow: {
+          keywordsRight: 'none',
+          searchBtn: ''
+        }
+      })
+    }
     this.setState({
       keyword: e.target.value
     })
