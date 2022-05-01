@@ -4,7 +4,13 @@ import './MoreSearch.css'
 export default class MoreSearch extends Component {
   constructor(props) {
     super(props)
+    var screenwidth = window.screen.width
+    var moreSearchWidth = ''
+    if (screenwidth < 768) {
+      moreSearchWidth = '300px'
+    }
     this.state = {
+      moreSearchWidth: moreSearchWidth,
       moreSearchShow: false,
       mOpacity: '0',
       mZIndex: '3',
@@ -13,9 +19,9 @@ export default class MoreSearch extends Component {
   }
   render() {
     return (
-      <div className={'more_search' + this.state.moreSearch} style={{ opacity: this.state.mOpacity, zIndex: this.state.mZIndex }}>
+      <div className={'more_search' + this.state.moreSearch} style={{ opacity: this.state.mOpacity, zIndex: this.state.mZIndex, maxWidth: this.state.moreSearchWidth }}>
         <div className="search_engines">
-          <div onClick={() => this.clickSearchImg(false, 'cus', 'img/search.png')}>
+          <div onClick={() => this.clickSearchImg(false, 'cus', 'img/search.png')} style={{display: 'none'}}>
             <img src="img/search.png" alt='' />
           </div>
           <div onClick={() => this.clickSearchImg(false, 'google', 'img/google.png')}>
