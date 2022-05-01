@@ -5,10 +5,20 @@ import MoreSearch from '../MoreSearch/MoreSearch'
 import './MainArea.css'
 
 export default class MainArea extends Component {
-  state = {
-    moreSearchShow: false,
-    searchEngine: 'google',
-    searchEngineImg: 'img/google.png'
+  constructor(props) {
+    super(props)
+    var searchEngine =  localStorage.getItem('searchEngine')
+    var searchEngineImg = localStorage.getItem('searchEngineImg')
+    if (searchEngine === null) {
+      searchEngine = 'google'
+      searchEngineImg = 'img/google.png'
+    }
+    localStorage.getItem('searchEngineImg')
+    this.state = {
+      moreSearchShow: false,
+      searchEngine: searchEngine,
+      searchEngineImg: searchEngineImg
+    }
   }
   render() {
     return (

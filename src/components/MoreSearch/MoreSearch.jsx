@@ -46,6 +46,8 @@ export default class MoreSearch extends Component {
       searchEngine: searchEngine,
       searchEngineImg: searchEngineImg
     })
+    localStorage.setItem('searchEngine', searchEngine)
+    localStorage.setItem('searchEngineImg', searchEngineImg)
     this.setState({
       mOpacity: '0',
       mZIndex: '3',

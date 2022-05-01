@@ -2,19 +2,28 @@ import React, { Component } from 'react'
 import './SearchBar.css'
 
 export default class SearchBar extends Component {
-  state = {
-    moreSearchShow: true,
-    searchEngine: 'google',
-    searchEngineImg: 'img/google.png',
-    keyword: '',
-    searchBtnShow: {
-      keywordsRight: 'none',
-      searchBtn: ''
+  constructor(props) {
+    super(props)
+    var screenwidth = window.innerWidth
+    var searchBarWidth = ''
+    if (screenwidth < 768) {
+      searchBarWidth = '324px'
+    }
+    this.state = {
+      searchBarWidth: searchBarWidth,
+      moreSearchShow: true,
+      searchEngine: 'google',
+      searchEngineImg: 'img/google.png',
+      keyword: '',
+      searchBtnShow: {
+        keywordsRight: 'none',
+        searchBtn: ''
+      }
     }
   }
   render() {
     return (
-      <div className='search_bar'>
+      <div className='search_bar' style={{width: this.state.searchBarWidth}}>
         <img alt='' src={this.state.searchEngineImg} onClick={() => {this.clickSearchImg(this.state.moreSearchShow)}} />
         <input type="text" onKeyUp={this.searchKeyword} />
         <div className="keywords_right" style={{display: this.state.searchBtnShow.keywordsRight}}></div>
