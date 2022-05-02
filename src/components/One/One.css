@@ -1,0 +1,31 @@
+.one_button{
+    position: fixed;
+    bottom: 0px;
+    background-color: #ffffff90;
+    border-radius: 50px;
+    box-shadow: 0px 0px 20px #00000070;
+    backdrop-filter: blur(40px);
+    margin-bottom: -200px;
+    cursor: pointer;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: black;
+}
+.one_button:active{
+    background-color: #ffffff70;
+}
+.one_button span{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    user-select: none;
+}
