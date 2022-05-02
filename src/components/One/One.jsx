@@ -23,10 +23,15 @@ export default class One extends Component {
     )
   }
   static getDerivedStateFromProps(props) {
+    var screenwidth = window.innerWidth
+    var oneButtonTopHeight = '20px'
+    if (screenwidth < 768) {
+      oneButtonTopHeight = '20vh'
+    }
     if (props.oneMain !== null && props.oneMain.hitokoto !== undefined) {
       return {
         oneMain: props.oneMain,
-        oneButtonHeight: '20px'
+        oneButtonHeight: oneButtonTopHeight
       }
     }
     return null;

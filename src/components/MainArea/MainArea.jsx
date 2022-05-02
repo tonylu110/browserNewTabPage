@@ -9,20 +9,26 @@ export default class MainArea extends Component {
     super(props)
     var searchEngine =  localStorage.getItem('searchEngine')
     var searchEngineImg = localStorage.getItem('searchEngineImg')
+    var screenwidth = window.innerWidth
+    var mainAreaTopHeight = ''
     if (searchEngine === null) {
       searchEngine = 'google'
       searchEngineImg = 'img/google.png'
+    }
+    if (screenwidth < 768) {
+      mainAreaTopHeight = '-20vh'
     }
     localStorage.getItem('searchEngineImg')
     this.state = {
       moreSearchShow: false,
       searchEngine: searchEngine,
-      searchEngineImg: searchEngineImg
+      searchEngineImg: searchEngineImg,
+      mainAreaTopHeight: mainAreaTopHeight
     }
   }
   render() {
     return (
-      <div className='MainArea'>
+      <div className='MainArea' style={{marginTop: this.state.mainAreaTopHeight}}>
         <SearchBar moreSearchShow={this.state.moreSearchShow} searchEngine={this.state.searchEngine} searchEngineImg={this.state.searchEngineImg} event ={
           (e) => {
             this.setState({
