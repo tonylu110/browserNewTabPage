@@ -15,6 +15,7 @@ export default class TopRightButton extends Component {
     this.state = {
       hideAll: hideAll
     }
+    console.log(this.state.hideAll);
   }
   render() {
     return (
@@ -22,9 +23,11 @@ export default class TopRightButton extends Component {
         <div className='tr_button' onClick={() => this.hideAll()}>
           <img src="img/hide.png" alt="" />
         </div>
-        <div className='tr_button' onClick={() => window.location.reload()}>
-          <img src="img/reload.png" alt="" />
-        </div>
+        {this.state.hideAll ? null : (
+          <div className='tr_button' onClick={() => window.location.reload()}>
+            <img src="img/reload.png" alt="" />
+          </div>
+        )}
       </div>
     )
   }

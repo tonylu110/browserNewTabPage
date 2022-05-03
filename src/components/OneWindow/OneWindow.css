@@ -57,6 +57,7 @@
     font-size: 40px;
     transition: all 0.5s ease 0s;
     color: black;
+    text-align: center;
 }
 .one_from{
     font-size: 30px;
