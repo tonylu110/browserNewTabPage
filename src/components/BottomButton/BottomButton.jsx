@@ -22,6 +22,9 @@ export default class BottomButton extends Component {
         <div className='b_button' onClick={() => this.hideAll()}>
           <img src="img/hide.png" alt="" />
         </div>
+        <div className='b_button' onClick={() => window.location.reload()}>
+          <img src="img/reload.png" alt="" />
+        </div>
       </div>
     )
   }

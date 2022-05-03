@@ -1,7 +1,9 @@
 .bottom_button{
     position: fixed;
-    z-index: 100;
+    z-index: 10;
     bottom: 0;
+    display: flex;
+    flex-direction: row;
 }
 .b_button{
     width: 30px;
