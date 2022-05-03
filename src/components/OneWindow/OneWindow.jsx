@@ -49,7 +49,10 @@ export default class OneWindow extends Component {
     )
   }
   clickCloseButton() {
-    this.props.event(false)
+    this.props.event({
+      oneMainShow: false,
+      blackBackShow: ''
+    })
   }
   static getDerivedStateFromProps(props) {
     if (props.oneMain !== null) {

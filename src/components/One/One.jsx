@@ -14,7 +14,8 @@ export default class One extends Component {
       oneMain: {},
       oneButtonHeight: '',
       oneButtonWidth: oneButtonWidth,
-      oneMainShow: false
+      oneMainShow: false,
+      blackBackShow: ''
     }
   }
   render() {
@@ -26,16 +27,25 @@ export default class One extends Component {
         <OneWindow oneMain={this.state.oneMain} oneMainShow={this.state.oneMainShow} event={
           (e) => {
             this.setState({
-              oneMainShow: e
+              oneMainShow: e.oneMainShow,
+              blackBackShow: e.blackBackShow
             })
           }
         } />
+        <div className='black_back' style={{zIndex: this.state.blackBackShow}} onClick={() => this.clickBlackBack()}></div>
       </>
     )
   }
   clickOneButton() {
     this.setState({
-      oneMainShow: true
+      oneMainShow: true,
+      blackBackShow: '20'
+    })
+  }
+  clickBlackBack() {
+    this.setState({
+      oneMainShow: false,
+      blackBackShow: ''
     })
   }
   static getDerivedStateFromProps(props) {
