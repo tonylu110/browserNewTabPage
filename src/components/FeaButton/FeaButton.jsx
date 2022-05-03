@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import TopRightButton from '../TopRightButton/TopRightButton'
+import BottomButtone from '../BottomButton/BottomButton'
 import './FeaButton.css'
 
 export default class FeaButton extends Component {
   constructor(props) {
     super(props)
     var hideAll = localStorage.getItem('hideAll')
+    var ScreenWidth = window.innerWidth
+    var isMobile = false
     if (hideAll === null) {
       hideAll = false
     } else if (hideAll === 'true') {
@@ -13,14 +16,22 @@ export default class FeaButton extends Component {
     } else {
       hideAll = false
     }
+    if (ScreenWidth < 768) {
+      isMobile = true
+    }
     this.state = {
-      hideAll: hideAll
+      hideAll: hideAll,
+      isMobile: isMobile
     }
   }
   render() {
     return (
       <>
-        <TopRightButton hideAll={(e) => this.hideAll(e)} />
+        {this.state.isMobile ? (
+          <BottomButtone hideAll={(e) => this.hideAll(e)} />
+        ) : (
+          <TopRightButton hideAll={(e) => this.hideAll(e)} />
+        )}
       </>
     )
   }

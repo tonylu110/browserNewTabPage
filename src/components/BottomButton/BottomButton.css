@@ -1,0 +1,25 @@
+.bottom_button{
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+}
+.b_button{
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    margin-bottom: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: #ffffff90;
+    box-shadow: 5px 5px 30px #00000050;
+    border-radius: 50%;
+    backdrop-filter: blur(20px);
+    cursor: pointer;
+}
+.b_button:active{
+    background-color: #ffffff50;
+}
+.b_button img{
+    width: 100%;
+    height: 100%;
+}

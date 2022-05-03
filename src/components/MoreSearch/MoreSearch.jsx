@@ -6,6 +6,11 @@ export default class MoreSearch extends Component {
     super(props)
     var screenwidth = window.screen.width
     var moreSearchWidth = ''
+    var hideAll = localStorage.getItem('hideAll')
+    var moreSearchTop = ''
+    if (hideAll === 'true') {
+      moreSearchTop = '0px'
+    }
     if (screenwidth < 768) {
       moreSearchWidth = '300px'
     }
@@ -14,14 +19,20 @@ export default class MoreSearch extends Component {
       moreSearchShow: false,
       mOpacity: '0',
       mZIndex: '3',
-      moreSearch: ''
+      moreSearch: '',
+      moreSearchTop: moreSearchTop
     }
   }
   render() {
     return (
-      <div className={'more_search' + this.state.moreSearch} style={{ opacity: this.state.mOpacity, zIndex: this.state.mZIndex, maxWidth: this.state.moreSearchWidth }}>
+      <div className={'more_search' + this.state.moreSearch} style={{
+        opacity: this.state.mOpacity,
+        zIndex: this.state.mZIndex,
+        maxWidth: this.state.moreSearchWidth,
+        marginTop: this.state.moreSearchTop
+      }}>
         <div className="search_engines">
-          <div onClick={() => this.clickSearchImg(false, 'cus', 'img/search.png')} style={{display: 'none'}}>
+          <div onClick={() => this.clickSearchImg(false, 'cus', 'img/search.png')} style={{ display: 'none' }}>
             <img src="img/search.png" alt='' />
           </div>
           <div onClick={() => this.clickSearchImg(false, 'google', 'img/google.png')}>
