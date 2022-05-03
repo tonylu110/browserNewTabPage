@@ -18,12 +18,12 @@ export default class MainArea extends Component {
     if (screenwidth < 768) {
       mainAreaTopHeight = '-20vh'
     }
-    localStorage.getItem('searchEngineImg')
     this.state = {
       moreSearchShow: false,
       searchEngine: searchEngine,
       searchEngineImg: searchEngineImg,
-      mainAreaTopHeight: mainAreaTopHeight
+      mainAreaTopHeight: mainAreaTopHeight,
+      hideAll: false
     }
   }
   render() {
@@ -45,8 +45,16 @@ export default class MainArea extends Component {
             })
           }
         } />
-        <LinkArea />
+        {this.state.hideAll ? null : <LinkArea />}
       </div>
     )
+  }
+  static getDerivedStateFromProps(props) {
+    if (props.hideAll !== null) {
+      return {
+        hideAll: props.hideAll
+      };
+    }
+    return null;
   }
 }
