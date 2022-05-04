@@ -1,14 +1,14 @@
-.top_right_button {
+.bottom_right_button{
     position: fixed;
     right: 0;
     z-index: 10;
-    top: 0;
+    bottom: 0;
 }
-.tr_button{
+.br_button{
     width: 30px;
     height: 30px;
     padding: 10px;
-    margin-top: 20px;
+    margin-bottom: 20px;
     margin-right: 20px;
     background-color: #ffffff90;
     box-shadow: 5px 5px 30px #00000050;
@@ -16,10 +16,10 @@
     backdrop-filter: blur(20px);
     cursor: pointer;
 }
-.tr_button:active{
-    background-color: #ffffff50;
-}
-.tr_button img{
+.br_button img{
     width: 100%;
     height: 100%;
+}
+.br_button:active{
+    background-color: #ffffff50;
 }

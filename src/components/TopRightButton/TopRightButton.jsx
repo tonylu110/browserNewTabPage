@@ -15,7 +15,6 @@ export default class TopRightButton extends Component {
     this.state = {
       hideAll: hideAll
     }
-    console.log(this.state.hideAll);
   }
   render() {
     return (

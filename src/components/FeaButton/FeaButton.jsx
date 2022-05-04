@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import TopRightButton from '../TopRightButton/TopRightButton'
 import BottomButtone from '../BottomButton/BottomButton'
+import BottomRightButton from '../BottomRightButton/BottomRightButton'
+import TopButton from '../TopButton/TopButton'
 import './FeaButton.css'
 
 export default class FeaButton extends Component {
@@ -28,9 +30,15 @@ export default class FeaButton extends Component {
     return (
       <>
         {this.state.isMobile ? (
-          <BottomButtone hideAll={(e) => this.hideAll(e)} />
+          <>
+            <BottomButtone hideAll={(e) => this.hideAll(e)} />
+            {this.state.hideAll ? null : <TopButton />}
+          </>
         ) : (
-          <TopRightButton hideAll={(e) => this.hideAll(e)} />
+          <>
+            <TopRightButton hideAll={(e) => this.hideAll(e)} />
+            {this.state.hideAll ? null : <BottomRightButton />}
+          </>
         )}
       </>
     )
