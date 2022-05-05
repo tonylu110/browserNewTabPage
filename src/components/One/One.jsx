@@ -15,15 +15,18 @@ export default class One extends Component {
       oneButtonHeight: '',
       oneButtonWidth: oneButtonWidth,
       oneMainShow: false,
-      blackBackShow: ''
+      blackBackShow: '',
+      mobileShowButton: true
     }
   }
   render() {
     return (
       <>
-        <div className='one_button' style={{ marginBottom: this.state.oneButtonHeight, maxWidth: this.state.oneButtonWidth }} onClick={() => this.clickOneButton()}>
-          <span style={{ maxWidth: this.state.oneButtonWidth }}>{this.state.oneMain.hitokoto}</span>
-        </div>
+        {this.state.mobileShowButton ? (
+          <div className='one_button' style={{ marginBottom: this.state.oneButtonHeight, maxWidth: this.state.oneButtonWidth }} onClick={() => this.clickOneButton()}>
+            <span style={{ maxWidth: this.state.oneButtonWidth }}>{this.state.oneMain.hitokoto}</span>
+          </div>
+        ) : null}
         <OneWindow oneMain={this.state.oneMain} oneMainShow={this.state.oneMainShow} event={
           (e) => {
             this.setState({
@@ -32,7 +35,7 @@ export default class One extends Component {
             })
           }
         } />
-        <div className='black_back' style={{zIndex: this.state.blackBackShow}} onClick={() => this.clickBlackBack()}></div>
+        <div className='black_back' style={{ zIndex: this.state.blackBackShow }} onClick={() => this.clickBlackBack()}></div>
       </>
     )
   }
@@ -47,6 +50,25 @@ export default class One extends Component {
       oneMainShow: false,
       blackBackShow: ''
     })
+  }
+  componentDidMount() {
+    const originHeight = document.documentElement.clientHeight || document.body.clientHeight;
+    this.resizeHandler = () => {
+      const resizeHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      const activeElement = document.activeElement;
+      if (resizeHeight < originHeight) {
+        if (activeElement && (activeElement.tagName === "INPUT" || activeElement.tagName === "TEXTAREA")) {
+          this.setState({
+            mobileShowButton: false
+          })
+        }
+      } else {
+        this.setState({
+          mobileShowButton: true
+        })
+      }
+    }
+    window.addEventListener('resize', this.resizeHandler);
   }
   static getDerivedStateFromProps(props) {
     var screenwidth = window.innerWidth

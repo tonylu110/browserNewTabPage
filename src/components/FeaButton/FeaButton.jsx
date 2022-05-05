@@ -23,7 +23,8 @@ export default class FeaButton extends Component {
     }
     this.state = {
       hideAll: hideAll,
-      isMobile: isMobile
+      isMobile: isMobile,
+      mobileShowButton: true
     }
   }
   render() {
@@ -31,7 +32,7 @@ export default class FeaButton extends Component {
       <>
         {this.state.isMobile ? (
           <>
-            <BottomButtone hideAll={(e) => this.hideAll(e)} />
+            {this.state.mobileShowButton ? <BottomButtone hideAll={(e) => this.hideAll(e)} /> : null}
             {this.state.hideAll ? null : <TopButton />}
           </>
         ) : (
@@ -42,6 +43,25 @@ export default class FeaButton extends Component {
         )}
       </>
     )
+  }
+  componentDidMount() {
+    const originHeight = document.documentElement.clientHeight || document.body.clientHeight;
+    this.resizeHandler = () => {
+      const resizeHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      const activeElement = document.activeElement;
+      if (resizeHeight < originHeight) {
+        if (activeElement && (activeElement.tagName === "INPUT" || activeElement.tagName === "TEXTAREA")) {
+          this.setState({
+            mobileShowButton: false
+          })
+        }
+      } else {
+        this.setState({
+          mobileShowButton: true
+        })
+      }
+    }
+    window.addEventListener('resize', this.resizeHandler);
   }
   hideAll(e) {
     this.setState({

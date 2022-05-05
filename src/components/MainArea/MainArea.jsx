@@ -16,7 +16,7 @@ export default class MainArea extends Component {
       searchEngineImg = 'img/google.png'
     }
     if (screenwidth < 768) {
-      mainAreaTopHeight = '-20vh'
+      mainAreaTopHeight = '-200px'
     }
     this.state = {
       moreSearchShow: false,
