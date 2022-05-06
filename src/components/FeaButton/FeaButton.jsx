@@ -3,6 +3,7 @@ import TopRightButton from '../TopRightButton/TopRightButton'
 import BottomButtone from '../BottomButton/BottomButton'
 import BottomRightButton from '../BottomRightButton/BottomRightButton'
 import TopButton from '../TopButton/TopButton'
+import TopLeftButton from '../TopLeftButton/TopLeftButton'
 import './FeaButton.css'
 
 export default class FeaButton extends Component {
@@ -41,6 +42,7 @@ export default class FeaButton extends Component {
             {this.state.hideAll ? null : <BottomRightButton />}
           </>
         )}
+        {this.state.hideAll ? null : <TopLeftButton />}
       </>
     )
   }
