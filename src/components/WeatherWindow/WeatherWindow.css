@@ -1,3 +1,6 @@
+.weather{
+    z-index: 22;
+}
 .weather_main{
     margin-left: 20px;
     font-size: 8px;

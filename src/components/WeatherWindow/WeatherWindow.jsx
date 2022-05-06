@@ -4,6 +4,8 @@ import './WeatherWindow.css'
 
 export default class WeatherWindow extends Component {
   constructor(props) {
+    var screenwidth = window.innerWidth
+    var isMobile = screenwidth < 768
     super(props)
     this.state = {
       showWeaherButton: true,
@@ -14,7 +16,8 @@ export default class WeatherWindow extends Component {
       otherWeather: {},
       showWeatherInfo: false,
       cityTemp: '北京',
-      city: ''
+      city: '',
+      isMobile: isMobile
     }
   }
   render() {
@@ -22,15 +25,15 @@ export default class WeatherWindow extends Component {
       <>
         {!this.state.showWeaherButton ? (
           <div className='top_left_button'>
-            <div className='tl_button' style={this.state.weatherWindowShowStyle}>
+            <div className='tl_button weather' style={this.state.weatherWindowShowStyle}>
               <img src={this.state.weatherImg} style={this.state.weatherImgShowStyle} alt="" onClick={() => this.showWeatherWindow()} />
               {this.state.showWeatherInfo ? (
-                <div className="weather_main">
+                <div className="weather_main" style={{margin: this.state.isMobile ? '10px 0px 0px 0px' : ''}}>
                   <div className="weather_city">
                     <input type="text" onKeyUp={this.citySet} placeholder={"当前城市：" + this.state.city} />
                     <div onClick={() => this.setCity()}>确定</div>
                   </div>
-                  <div className="day_weather">
+                  <div className="day_weather" style={{top: this.state.isMobile ? '137px' : ''}}>
                     <div className="today_weather">{this.state.weatherInfo.weather[0].weather}</div>
                     <div>今日气温：{this.state.weatherInfo.weather[0].temp}</div>
                     <div className="fea_weather">
@@ -59,10 +62,21 @@ export default class WeatherWindow extends Component {
             </div>
           </div>
         ) : null}
+        {this.state.isMobile ? <div className='black_back' style={{ zIndex: this.state.showWeaherButton ? '' : '10' }} onClick={() => this.clickBlackBack()}></div> : null}
       </>
     )
   }
   showWeatherWindow() {
+    this.setState({
+      weatherImgShowStyle: {},
+      weatherWindowShowStyle: {},
+      showWeatherInfo: false
+    })
+    setTimeout(() => {
+      this.props.event(true)
+    }, 300)
+  }
+  clickBlackBack() {
     this.setState({
       weatherImgShowStyle: {},
       weatherWindowShowStyle: {},
@@ -101,13 +115,16 @@ export default class WeatherWindow extends Component {
   }
   componentDidMount() {
     setTimeout(() => {
+      var screenwidth = window.innerWidth
+      console.log(screenwidth);
       this.setState({
         weatherWindowShowStyle: {
-          width: '350px',
-          height: '250px',
+          width: (this.state.isMobile ? '270px' : '350px'),
+          height: (this.state.isMobile ? '310px' : '250px'),
           padding: '20px',
           display: 'flex',
-          flexDirection: 'row'
+          flexDirection: (this.state.isMobile? 'column' : 'row'),
+          transform: (this.state.isMobile ? 'translateX(' + (screenwidth - 350) / 2 + 'px) translateY(100px)' : '')
         },
         weatherImgShowStyle: {
           width: '60px',
