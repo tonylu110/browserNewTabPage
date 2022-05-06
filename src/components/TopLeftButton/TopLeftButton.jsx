@@ -1,12 +1,22 @@
 import React, { Component } from 'react'
 import TarRequest from '../../util/TarRequest/TarRequest'
+import WeatherWindow from '../WeatherWindow/WeatherWindow'
 import './TopLeftButton.css'
 
 export default class TopLeftButton extends Component {
-  state = {
-    weatherImg: '',
-    showWeaherButton: true,
-    weatherImgShow: false
+  constructor(props) {
+    super(props)
+    var city = localStorage.getItem('city')
+    if (city === null) {
+      city = '北京'
+    }
+    this.state = {
+      weatherImg: '',
+      showWeaherButton: true,
+      weatherImgShow: false,
+      weatherinfo: {},
+      city: city
+    }
   }
   render() {
     return (
@@ -18,6 +28,28 @@ export default class TopLeftButton extends Component {
             </div>
           </div>
         ) : null}
+        {this.state.showWeaherButton ? null : <WeatherWindow
+          weatherImg={this.state.weatherImg}
+          showWeaherButton={this.state.showWeaherButton}
+          weatherinfo={this.state.weatherinfo}
+          city={this.state.city}
+          event={
+            (e) => {
+              this.setState({
+                showWeaherButton: e
+              })
+            }
+          }
+          citySet={
+            (e) => {
+              this.setState({
+                city: e
+              })
+              setTimeout(() => {
+                this.getWeather()
+              }, 5)
+            }
+          } />}
       </>
     )
   }
@@ -26,9 +58,9 @@ export default class TopLeftButton extends Component {
       showWeaherButton: false
     })
   }
-  componentDidMount() {
+  getWeather = () => {
     TarRequest('GET', "http://mark.tnyl.xyz/weather/weather/baidu", {
-      city: '北京'
+      city: this.state.city
     }, (res) => {
       var weatherImg
       if (res.weather[0].weather.search("多云") !== -1) {
@@ -46,8 +78,12 @@ export default class TopLeftButton extends Component {
       }
       this.setState({
         weatherImg: weatherImg,
-        weatherImgShow: true
+        weatherImgShow: true,
+        weatherinfo: res
       })
     })
+  }
+  componentDidMount() {
+    this.getWeather()
   }
 }
