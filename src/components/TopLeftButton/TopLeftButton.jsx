@@ -59,7 +59,7 @@ export default class TopLeftButton extends Component {
     })
   }
   getWeather = () => {
-    TarRequest('GET', "http://mark.tnyl.xyz/weather/weather/baidu", {
+    TarRequest('GET', "https://mark.tnyl.xyz/weather/weather/baidu", {
       city: this.state.city
     }, (res) => {
       var weatherImg

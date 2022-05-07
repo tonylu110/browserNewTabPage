@@ -28,12 +28,15 @@ export default class WeatherWindow extends Component {
             <div className='tl_button weather' style={this.state.weatherWindowShowStyle}>
               <img src={this.state.weatherImg} style={this.state.weatherImgShowStyle} alt="" onClick={() => this.showWeatherWindow()} />
               {this.state.showWeatherInfo ? (
-                <div className="weather_main" style={{margin: this.state.isMobile ? '10px 0px 0px 0px' : ''}}>
+                <div className="weather_main" style={{
+                  margin: this.state.isMobile ? '10px 0px 0px 0px' : '',
+                  fontSize: this.state.isMobile ? '12px' : '8px'
+                }}>
                   <div className="weather_city">
                     <input type="text" onKeyUp={this.citySet} placeholder={"当前城市：" + this.state.city} />
                     <div onClick={() => this.setCity()}>确定</div>
                   </div>
-                  <div className="day_weather" style={{top: this.state.isMobile ? '137px' : ''}}>
+                  <div className="day_weather" style={{ top: this.state.isMobile ? '137px' : '' }}>
                     <div className="today_weather">{this.state.weatherInfo.weather[0].weather}</div>
                     <div>今日气温：{this.state.weatherInfo.weather[0].temp}</div>
                     <div className="fea_weather">
@@ -62,7 +65,9 @@ export default class WeatherWindow extends Component {
             </div>
           </div>
         ) : null}
-        {this.state.isMobile ? <div className='black_back' style={{ zIndex: this.state.showWeaherButton ? '' : '10' }} onClick={() => this.clickBlackBack()}></div> : null}
+        <div className='black_back' style={{ 
+          zIndex: this.state.showWeaherButton ? '' : (this.state.isMobile ? '10' : '2'),
+          backgroundColor: this.state.isMobile ? '' : '#00000000' }} onClick={() => this.clickBlackBack()}></div>
       </>
     )
   }
@@ -116,14 +121,13 @@ export default class WeatherWindow extends Component {
   componentDidMount() {
     setTimeout(() => {
       var screenwidth = window.innerWidth
-      console.log(screenwidth);
       this.setState({
         weatherWindowShowStyle: {
           width: (this.state.isMobile ? '270px' : '350px'),
           height: (this.state.isMobile ? '310px' : '250px'),
           padding: '20px',
           display: 'flex',
-          flexDirection: (this.state.isMobile? 'column' : 'row'),
+          flexDirection: (this.state.isMobile ? 'column' : 'row'),
           transform: (this.state.isMobile ? 'translateX(' + (screenwidth - 350) / 2 + 'px) translateY(100px)' : '')
         },
         weatherImgShowStyle: {
@@ -136,7 +140,7 @@ export default class WeatherWindow extends Component {
       this.setState({
         showWeatherInfo: true
       })
-    },300)
+    }, 300)
   }
   static getDerivedStateFromProps(props) {
     return {
