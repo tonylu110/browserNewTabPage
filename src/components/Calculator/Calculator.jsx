@@ -1,13 +1,23 @@
 import React, { Component } from 'react'
+import CalculatorUse from './CalculatorUse'
 import './Calculator.css'
 
 export default class Calculator extends Component {
-  state = {
-    value: ''
+  constructor(props) {
+    super(props)
+    var screenwidth = window.innerWidth
+    var isMobile = false
+    if (screenwidth < 768) {
+      isMobile = true
+    }
+    this.state = {
+      value: '',
+      isMobile: isMobile
+    }
   }
   render() {
     return (
-      <div className="main_cal">
+      <div className="main_cal" style={{bottom: this.state.isMobile ? '130px' : ''}}>
         <div className="card" action=''>
           <input type="text" className="value" id="txt" readOnly="readonly" value={this.state.value} />
           <span className="clear" onClick={() => this.setState({value: ''})} style={{ marginLeft: '10px' }}>c</span>
@@ -38,6 +48,8 @@ export default class Calculator extends Component {
     })
   }
   result() {
-
+    this.setState({
+      value: CalculatorUse(this.state.value)
+    })
   }
 }

@@ -13,7 +13,7 @@ export default function TarRequest(method, url, value, callback) {
     } else {
     	str = ''
     }
-	if (method === 'GET') {
+	if (method.toUpperCase() === 'GET') {
 		if (value) {
 			str = '?' + str
 		}
@@ -29,7 +29,7 @@ export default function TarRequest(method, url, value, callback) {
 		function transferFailed() {
 			if (callback) callback('数据接收出错')
 		}
-    } else if (method === 'POST') {
+    } else if (method.toUpperCase() === 'POST') {
         httpRequest.open(method, url, true)
 		httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         httpRequest.send(str)
