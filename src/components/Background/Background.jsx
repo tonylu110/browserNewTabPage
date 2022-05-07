@@ -28,19 +28,26 @@ export default class Background extends Component {
       background: backgroundImage,
       backgroundHeight: backgroundHeight,
       one: {},
-      hideAll: hideAll
+      hideAll: hideAll,
+      useCalculator: false
     }
   }
   render() {
     return (
       <div className='background' style={{backgroundImage: this.state.background, height: this.state.backgroundHeight}}>
-        <MainArea hideAll={this.state.hideAll} />
-        {this.state.hideAll ? null : <One oneMain={this.state.one} />}
+        {this.state.useCalculator ? null : <MainArea hideAll={this.state.hideAll} />}
+        {this.state.hideAll || this.state.useCalculator ? null : <One oneMain={this.state.one} />}
         <FeaButton hideAll={(e) => {
           this.setState({
             hideAll: e
           })
-        }} />
+        }} useCalculator={
+          (e) => {
+            this.setState({
+              useCalculator: e
+            })
+          }
+        } />
       </div>
     )
   }

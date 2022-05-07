@@ -25,7 +25,8 @@ export default class FeaButton extends Component {
     this.state = {
       hideAll: hideAll,
       isMobile: isMobile,
-      mobileShowButton: true
+      mobileShowButton: true,
+      calculatorShow: false
     }
   }
   render() {
@@ -33,16 +34,30 @@ export default class FeaButton extends Component {
       <>
         {this.state.isMobile ? (
           <>
-            {this.state.mobileShowButton ? <BottomButtone hideAll={(e) => this.hideAll(e)} /> : null}
-            {this.state.hideAll ? null : <TopButton />}
+            {this.state.mobileShowButton ? <BottomButtone hideAll={(e) => this.hideAll(e)} useCalculator={
+              (e) => {
+                this.setState({
+                  calculatorShow: e
+                })
+                this.props.useCalculator(e)
+              }
+            }/> : null}
+            {this.state.hideAll || this.state.calculatorShow ? null : <TopButton />}
           </>
         ) : (
           <>
-            <TopRightButton hideAll={(e) => this.hideAll(e)} />
-            {this.state.hideAll ? null : <BottomRightButton />}
+            <TopRightButton hideAll={(e) => this.hideAll(e)} useCalculator={
+              (e) => {
+                this.setState({
+                  calculatorShow: e
+                })
+                this.props.useCalculator(e)
+              }
+            } />
+            {this.state.hideAll || this.state.calculatorShow ? null : <BottomRightButton />}
           </>
         )}
-        {this.state.hideAll ? null : <TopLeftButton />}
+        {this.state.hideAll || this.state.calculatorShow ? null : <TopLeftButton />}
       </>
     )
   }

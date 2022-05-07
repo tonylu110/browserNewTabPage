@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Calculator from '../Calculator/Calculator'
 import './BottomButton.css'
 
 export default class BottomButton extends Component {
@@ -13,21 +14,34 @@ export default class BottomButton extends Component {
       hideAll = false
     }
     this.state = {
-      hideAll: hideAll
+      hideAll: hideAll,
+      calculatorShow: false
     }
   }
   render() {
     return (
-      <div className='bottom_button'>
-        <div className='b_button' onClick={() => this.hideAll()}>
-          <img src="img/hide.png" alt="" />
+      <>
+        <div className='bottom_button'>
+          {this.state.calculatorShow ? null : (
+            <div className='b_button' onClick={() => this.hideAll()}>
+              <img src="img/hide.png" alt="" />
+            </div>
+          )}
+          {this.state.hideAll ? null : (
+            <>
+              {this.state.calculatorShow ? null : (
+                <div className='b_button' onClick={() => window.location.reload()}>
+                  <img src="img/reload.png" alt="" />
+                </div>
+              )}
+              <div className='b_button' onClick={() => this.useCalculator()}>
+                <img src="img/calculator.png" alt="" />
+              </div>
+            </>
+          )}
         </div>
-        {this.state.hideAll ? null : (
-          <div className='b_button' onClick={() => window.location.reload()}>
-            <img src="img/reload.png" alt="" />
-          </div>
-        )}
-      </div>
+        {this.state.calculatorShow ? <Calculator /> : null}
+      </>
     )
   }
   hideAll() {
@@ -44,5 +58,11 @@ export default class BottomButton extends Component {
       })
       localStorage.setItem('hideAll', false)
     }
+  }
+  useCalculator() {
+    this.setState({
+      calculatorShow: !this.state.calculatorShow
+    })
+    this.props.useCalculator(!this.state.calculatorShow)
   }
 }
