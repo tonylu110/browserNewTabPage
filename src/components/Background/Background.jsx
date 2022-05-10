@@ -10,7 +10,6 @@ export default class Background extends Component {
     super(props)
     var screenHeight = document.documentElement.clientHeight;
     var screenwidth = window.innerWidth
-    var backgroundImage = 'url(https://iw233.cn/api.php?sort=pc)'
     var backgroundHeight = ''
     var hideAll = localStorage.getItem('hideAll')
     var isMobile = false
@@ -22,12 +21,18 @@ export default class Background extends Component {
       hideAll = false
     }
     if (screenwidth < 768) {
-      backgroundImage = 'url(https://iw233.cn/api.php?sort=mp)'
       backgroundHeight = screenHeight + 'px'
       isMobile = true
     }
+    TarRequest('GET', 'https://mark.tnyl.xyz/api/api.php?sort=' + (isMobile ? 'mp' : 'pc') + '&type=json', null, (res) => {
+      this.setState({
+        background: 'url(' + res.pic + ')',
+        backgroundImage: res.pic,
+      })
+    })
     this.state = {
-      background: backgroundImage,
+      background: '',
+      backgroundImage: '',
       backgroundHeight: backgroundHeight,
       one: {},
       hideAll: hideAll,
@@ -38,14 +43,14 @@ export default class Background extends Component {
   }
   render() {
     var img = document.createElement('img')
-    img.src = (this.state.isMobile ? 'https://iw233.cn/api.php?sort=mp' : 'https://iw233.cn/api.php?sort=pc')
+    img.src = this.state.backgroundImage
     img.onload = () => {
-       this.setState({
-          backgroundShow: ''
-       }) 
+      this.setState({
+        backgroundShow: ''
+      })
     }
     return (
-      <div className='background' style={{backgroundImage: this.state.background, height: this.state.backgroundHeight, display: this.state.backgroundShow}}>
+      <div className='background' style={{ backgroundImage: this.state.background, height: this.state.backgroundHeight, display: this.state.backgroundShow }}>
         {this.state.useCalculator ? null : <MainArea hideAll={this.state.hideAll} />}
         {this.state.hideAll || this.state.useCalculator ? null : <One oneMain={this.state.one} />}
         <FeaButton hideAll={(e) => {
@@ -58,7 +63,7 @@ export default class Background extends Component {
               useCalculator: e
             })
           }
-        } />
+        } backgroundImage={this.state.backgroundImage} />
       </div>
     )
   }

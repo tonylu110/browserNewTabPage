@@ -4,12 +4,16 @@ import './BottomRightButton.css'
 
 export default class BottomRightButton extends Component {
   state = {
-    infoWindowShow: false
+    infoWindowShow: false,
+    backgroundImage: ''
   }
   render() {
     return (
       <>
         <div className='bottom_right_button'>
+          <div className='br_button' onClick={() => this.downPic()}>
+            <img src="img/down.png" alt="" />
+          </div>
           <div className='br_button' onClick={() => this.showInfoWindow()}>
             <img src="img/info.png" alt="" />
           </div>
@@ -32,9 +36,21 @@ export default class BottomRightButton extends Component {
       infoWindowShow: true
     })
   }
+  downPic() {
+    var fileName = 'pic-' + Date.now() + '.png'
+    var img = document.createElement('a')
+    img.setAttribute('href', this.state.backgroundImage)
+    img.setAttribute('download', fileName)
+    img.click()
+  }
   clickBlackBack() {
     this.setState({
       infoWindowShow: false
     })
+  }
+  static getDerivedStateFromProps(props) {
+    return {
+      backgroundImage: props.backgroundImage,
+    }
   }
 }
