@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import GetIsMobile from '../../util/GetIsMobile/GetIsMobile'
 import './SearchBar.css'
 
 export default class SearchBar extends Component {
@@ -87,5 +88,18 @@ export default class SearchBar extends Component {
       };
     }
     return null;
+  }
+  componentDidMount() {
+    GetIsMobile((e) => {
+      var searchBarWidth
+      if (e) {
+        searchBarWidth = '324px'
+      } else {
+        searchBarWidth = ''
+      }
+      this.setState({
+        searchBarWidth: searchBarWidth
+      })
+    })
   }
 }

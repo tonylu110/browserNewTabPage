@@ -5,6 +5,7 @@ import BottomRightButton from '../BottomRightButton/BottomRightButton'
 import TopButton from '../TopButton/TopButton'
 import TopLeftButton from '../TopLeftButton/TopLeftButton'
 import './FeaButton.css'
+import GetIsMobile from '../../util/GetIsMobile/GetIsMobile'
 
 export default class FeaButton extends Component {
   constructor(props) {
@@ -82,6 +83,11 @@ export default class FeaButton extends Component {
       }
     }
     window.addEventListener('resize', this.resizeHandler);
+    GetIsMobile((e) => {
+      this.setState({
+        isMobile: e
+      })
+    })
   }
   /* A function that is called when the user clicks on the button. It sets the state of the component
   to hideAll: e. It also calls the hideAll function in the parent component and passes the value of

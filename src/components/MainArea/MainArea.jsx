@@ -3,6 +3,7 @@ import SearchBar from '../SearchBar/SearchBar'
 import LinkArea from '../LinkArea/LinkArea'
 import MoreSearch from '../MoreSearch/MoreSearch'
 import './MainArea.css'
+import GetIsMobile from '../../util/GetIsMobile/GetIsMobile'
 
 export default class MainArea extends Component {
   constructor(props) {
@@ -48,6 +49,19 @@ export default class MainArea extends Component {
         {this.state.hideAll ? null : <LinkArea />}
       </div>
     )
+  }
+  componentDidMount() {
+    GetIsMobile((e) => {
+      var marginTop
+      if (e) {
+        marginTop = '-200px'
+      } else {
+        marginTop = ''
+      }
+      this.setState({
+        mainAreaTopHeight: marginTop
+      })
+    })
   }
   static getDerivedStateFromProps(props) {
     /* A static method that is invoked right before rendering when new props or state are being

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import GetIsMobile from '../../util/GetIsMobile/GetIsMobile'
 import './LinkArea.css'
 
 export default class LinkArea extends Component {
@@ -27,7 +28,7 @@ export default class LinkArea extends Component {
   }
   render() {
     return (
-      <div className="link_area" style={{width: (this.state.isMobile ? '366px' : '')}}>
+      <div className="link_area" style={{ width: (this.state.isMobile ? '366px' : '') }}>
         <div onClick={() => this.openLink('1')}>
           <div>
             <img src="img/google.png" alt="" />
@@ -110,5 +111,12 @@ export default class LinkArea extends Component {
       default:
         return null
     }
+  }
+  componentDidMount() {
+    GetIsMobile((e) => {
+      this.setState({
+        isMobile: e
+      })
+    })
   }
 }

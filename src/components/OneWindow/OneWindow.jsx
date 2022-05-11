@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import GetIsMobile from '../../util/GetIsMobile/GetIsMobile'
 import './OneWindow.css'
 
 export default class OneWindow extends Component {
@@ -41,9 +42,9 @@ export default class OneWindow extends Component {
           <img src="img/close.png" alt='' />
         </div>
         <div className='one_main_info'>
-          <span className='one_num' style={{fontSize: this.state.oneMainFontSize}}>#{this.state.oneMain.id}</span>
-          <span className='one_text' style={{fontSize: this.state.oneMainFontSize}}>{this.state.oneMain.hitokoto}</span>
-          <span className='one_from' style={{fontSize: this.state.oneMainFontSize}}>———{this.state.oneMain.from}</span>
+          <span className='one_num' style={{ fontSize: this.state.oneMainFontSize }}>#{this.state.oneMain.id}</span>
+          <span className='one_text' style={{ fontSize: this.state.oneMainFontSize }}>{this.state.oneMain.hitokoto}</span>
+          <span className='one_from' style={{ fontSize: this.state.oneMainFontSize }}>———{this.state.oneMain.from}</span>
         </div>
       </div>
     )
@@ -62,5 +63,34 @@ export default class OneWindow extends Component {
       }
     }
     return null;
+  }
+  componentDidMount() {
+    GetIsMobile((e) => {
+      var oneMainWidth
+      var oneMainHeight
+      var oneMainPadding
+      var oneMainFontSize
+      var oneMainBottm
+      if (e) {
+        oneMainWidth = '270px'
+        oneMainHeight = '400px'
+        oneMainPadding = '40px'
+        oneMainFontSize = '30px'
+        oneMainBottm = '-50vh'
+      } else {
+        oneMainWidth = ''
+        oneMainHeight = ''
+        oneMainPadding = ''
+        oneMainFontSize = ''
+        oneMainBottm = '-170px'
+      }
+      this.setState({
+        oneMainWidth: oneMainWidth,
+        oneMainHeight: oneMainHeight,
+        oneMainPadding: oneMainPadding,
+        oneMainFontSize: oneMainFontSize, 
+        oneMainBottm: oneMainBottm
+      })
+    })
   }
 }
