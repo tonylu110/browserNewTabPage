@@ -37,6 +37,8 @@ export default class BottomRightButton extends Component {
     })
   }
   downPic() {
+    /* Open new window and
+    download the image. */
     var fileName = 'pic-' + Date.now() + '.png'
     var img = document.createElement('a')
     img.setAttribute('href', this.state.backgroundImage)

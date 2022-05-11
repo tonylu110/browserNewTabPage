@@ -1,3 +1,4 @@
+//When Mobile show the bottom button
 import React, { Component } from 'react'
 import Calculator from '../Calculator/Calculator'
 import './BottomButton.css'
@@ -44,6 +45,8 @@ export default class BottomButton extends Component {
       </>
     )
   }
+  /* A function that is called when the user clicks the hide button. It will hide all the buttons and
+  save the state in localStorage. */
   hideAll() {
     if (!this.state.hideAll) {
       this.props.hideAll(true)
@@ -59,6 +62,8 @@ export default class BottomButton extends Component {
       localStorage.setItem('hideAll', false)
     }
   }
+  /* A function that is called when the user clicks the calculator button. It will show the calculator
+  and save the state in localStorage. */
   useCalculator() {
     this.setState({
       calculatorShow: !this.state.calculatorShow

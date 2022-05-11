@@ -71,6 +71,7 @@ export default class WeatherWindow extends Component {
       </>
     )
   }
+  /* A function that is called when the weather button is clicked. */
   showWeatherWindow() {
     this.setState({
       weatherImgShowStyle: {},
@@ -81,6 +82,7 @@ export default class WeatherWindow extends Component {
       this.props.event(true)
     }, 300)
   }
+  /* A function that is called when the black background is clicked. */
   clickBlackBack() {
     this.setState({
       weatherImgShowStyle: {},
@@ -119,6 +121,7 @@ export default class WeatherWindow extends Component {
     }
   }
   componentDidMount() {
+    /* Used to set the style of the weather window. */
     setTimeout(() => {
       var screenwidth = window.innerWidth
       this.setState({
@@ -136,6 +139,7 @@ export default class WeatherWindow extends Component {
         }
       })
     }, 1)
+    /* Used to set the style of the weather window. */
     setTimeout(() => {
       this.setState({
         showWeatherInfo: true

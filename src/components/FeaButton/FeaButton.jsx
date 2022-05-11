@@ -19,6 +19,8 @@ export default class FeaButton extends Component {
     } else {
       hideAll = false
     }
+    /* Checking the width of the screen and if it is less than 768px, it sets the state of isMobile to
+    true. */
     if (ScreenWidth < 768) {
       isMobile = true
     }
@@ -81,6 +83,9 @@ export default class FeaButton extends Component {
     }
     window.addEventListener('resize', this.resizeHandler);
   }
+  /* A function that is called when the user clicks on the button. It sets the state of the component
+  to hideAll: e. It also calls the hideAll function in the parent component and passes the value of
+  e to it. */
   hideAll(e) {
     this.setState({
       hideAll: e

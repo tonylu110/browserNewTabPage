@@ -20,10 +20,13 @@ export default class Background extends Component {
     } else {
       hideAll = false
     }
+    /* Setting the background height to the screen height if the screen width is less than 768px. */
     if (screenwidth < 768) {
       backgroundHeight = screenHeight + 'px'
       isMobile = true
     }
+    /* A function that I wrote to make ajax request.
+    Get background image. */
     TarRequest('GET', 'https://mark.tnyl.xyz/api/api.php?sort=' + (isMobile ? 'mp' : 'pc') + '&type=json', null, (res) => {
       this.setState({
         background: 'url(' + res.pic + ')',

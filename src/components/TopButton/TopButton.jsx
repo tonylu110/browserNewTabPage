@@ -1,3 +1,4 @@
+//When Mobile show the top button
 import React, { Component } from 'react'
 import InfoMobileWindow from '../InfoMobileWindow/InfoMobileWindow'
 import './TopButton.css'
@@ -37,6 +38,8 @@ export default class TopButton extends Component {
     })
   }
   downPic() {
+    /* Open new window and
+    download the image. */
     var fileName = 'pic-' + Date.now() + '.png'
     var img = document.createElement('a')
     img.setAttribute('href', this.state.backgroundImage)
