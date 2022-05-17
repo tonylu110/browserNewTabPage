@@ -27,8 +27,7 @@ export default class FeaButton extends Component {
       hideAll: hideAll,
       isMobile: isMobile,
       mobileShowButton: true,
-      calculatorShow: false,
-      backgroundImage: ''
+      calculatorShow: false
     }
   }
   render() {
@@ -43,8 +42,8 @@ export default class FeaButton extends Component {
                 })
                 this.props.useCalculator(e)
               }
-            } /> : null}
-            {this.state.hideAll || this.state.calculatorShow ? null : <TopButton backgroundImage={this.state.backgroundImage} />}
+            }/> : null}
+            {this.state.hideAll || this.state.calculatorShow ? null : <TopButton />}
           </>
         ) : (
           <>
@@ -56,7 +55,7 @@ export default class FeaButton extends Component {
                 this.props.useCalculator(e)
               }
             } />
-            {this.state.hideAll || this.state.calculatorShow ? null : <BottomRightButton backgroundImage={this.state.backgroundImage} />}
+            {this.state.hideAll || this.state.calculatorShow ? null : <BottomRightButton />}
           </>
         )}
         {this.state.hideAll || this.state.calculatorShow ? null : <TopLeftButton />}
@@ -92,10 +91,5 @@ export default class FeaButton extends Component {
       hideAll: e
     })
     this.props.hideAll(e)
-  }
-  static getDerivedStateFromProps(props) {
-    return {
-      backgroundImage: props.backgroundImage,
-    }
   }
 }
