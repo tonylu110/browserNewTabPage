@@ -1,7 +1,7 @@
 .top_left_button{
     position: fixed;
     left: 0;
-    z-index: 11;
+    z-index: 22;
     top: 0;
 }
 .tl_button{
