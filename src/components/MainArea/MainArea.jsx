@@ -64,8 +64,6 @@ export default class MainArea extends Component {
     })
   }
   static getDerivedStateFromProps(props) {
-    /* A static method that is invoked right before rendering when new props or state are being
-    received. It should return an object to update the state, or null to update nothing. */
     if (props.hideAll !== null) {
       return {
         hideAll: props.hideAll

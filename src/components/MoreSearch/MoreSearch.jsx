@@ -57,7 +57,6 @@ export default class MoreSearch extends Component {
       </div>
     )
   }
-  /* A function that is called when a user clicks on a search engine image. */
   clickSearchImg(moreSearchShow, searchEngine, searchEngineImg) {
     this.props.event({
       moreSearchShow: moreSearchShow,
