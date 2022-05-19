@@ -39,20 +39,22 @@ export default class SearchBar extends Component {
     })
   }
   searchKeyword = (e) => {
-    if (e.target.value.length > 0) {
-      this.setState({
-        searchBtnShow: {
-          keywordsRight: '',
-          searchBtn: '45px'
-        }
-      })
-    } else {
-      this.setState({
-        searchBtnShow: {
-          keywordsRight: 'none',
-          searchBtn: ''
-        }
-      })
+    if(this.state.searchBarWidth === '') {
+      if (e.target.value.length > 0) {
+        this.setState({
+          searchBtnShow: {
+            keywordsRight: '',
+            searchBtn: '45px'
+          }
+        })
+      } else {
+        this.setState({
+          searchBtnShow: {
+            keywordsRight: 'none',
+            searchBtn: ''
+          }
+        })
+      }
     }
     this.setState({
       keyword: e.target.value
